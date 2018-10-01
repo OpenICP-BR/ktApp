@@ -1,3 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: ICPktApp.MyAppKt
-
+Main-Class: com.github.OpenICP_BR.ktApp.MyAppKt

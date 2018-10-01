@@ -6,7 +6,7 @@ Compile: `mvn compile`
 
 Run: `mvn exec:java`
 
-Generate final JAR with dependencies: `mvn assembly:single`
+Generate final JAR with dependencies: `mvn package`
 
 ### Clean/no-cache versions
 
