@@ -1,4 +1,4 @@
-package ICPktApp
+package ktApp
 
 import javafx.scene.paint.Color
 import javafx.scene.paint.CycleMethod

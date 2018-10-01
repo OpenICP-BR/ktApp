@@ -1,6 +1,6 @@
-package ICPktApp
+package ktApp
 
-import ICPktApp.views.MainView
+import ktApp.views.MainView
 import javafx.application.Application
 import tornadofx.App
 

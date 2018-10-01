@@ -1,8 +1,9 @@
-package ICPktApp.views
+package ktApp.views
 
-import ICPktApp.Styles
+import  ktApp.Styles
 import javafx.scene.control.Alert.AlertType.INFORMATION
 import tornadofx.*
+import com.github.openicpbr.ICP.*
 
 class MainView : View("Hello TornadoFX") {
     override val root = borderpane {
@@ -15,9 +16,9 @@ class MainView : View("Hello TornadoFX") {
         center {
             stackpane {
                 addClass(Styles.content)
-                button("Click me 2") {
+                button("Click me") {
                     setOnAction {
-                        alert(INFORMATION, "Well done!", "You clicked me!")
+                        alert(INFORMATION, "Well done!", "You clicked me! " +TESTING_ROOT_CA_SUBJECT)
                     }
                 }
             }

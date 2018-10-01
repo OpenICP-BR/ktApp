@@ -9,5 +9,8 @@
         <module name="OpenICP-BR ktApp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="OpenICP-BR ktApp" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
