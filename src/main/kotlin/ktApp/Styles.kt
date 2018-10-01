@@ -1,4 +1,4 @@
-package ktApp
+package com.github.OpenICP_BR.ktApp
 
 import javafx.scene.paint.Color
 import javafx.scene.paint.CycleMethod

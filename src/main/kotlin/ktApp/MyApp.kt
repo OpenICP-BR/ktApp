@@ -1,6 +1,6 @@
-package ktApp
+package com.github.OpenICP_BR.ktApp
 
-import ktApp.views.MainView
+import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.application.Application
 import tornadofx.App
 
