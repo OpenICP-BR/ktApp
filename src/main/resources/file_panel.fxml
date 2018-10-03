@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" vgap="4.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+  </rowConstraints>
+   <children>
+      <Label text="%T.Name" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <Label text="%T.Path" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <Label text="%T.Hash" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Label text="%T.Size" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <Label alignment="TOP_LEFT" text="Contrato.docx" wrapText="true" GridPane.columnIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Font" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" text="C:\Users\Alguem\Meus Documentos" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Font" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" text="SHA1: DA39 A3EE 5E6B 4B0D 3255 BFEF 9560 1890 AFD8 0709" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Font" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" text="1 MiB = 1.05 MB = 1049000 bytes" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Font" size="13.0" />
+         </font>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</GridPane>

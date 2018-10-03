@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" vgap="4.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="%T.Signer" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Label text="%Sig.Integrity" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="TOP" />
+      <Label alignment="BOTTOM_LEFT" text="%Sig.DeclaredDate" textAlignment="RIGHT" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="TOP">
+         <tooltip>
+            <Tooltip text="O signatário pode ter mentido se ele mudou a hora do computador dele" />
+         </tooltip></Label>
+      <Label text="%Sig.Validity" textAlignment="RIGHT" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <Label alignment="TOP_LEFT" text="Zé da Silva:12345678900" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Label alignment="TOP_LEFT" text="✖ Arquivo foi modificado" textFill="RED" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="11" GridPane.valignment="TOP" />
+      <Label alignment="TOP_LEFT" text="30/08-Ago/2018 17:45:23 GMT" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="12" GridPane.valignment="TOP" />
+      <Label alignment="TOP_LEFT" text="✔ Válido no momento declarado da assiantura" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <Label text="%Sig.Revocation" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="7">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" text="✔ Nada consta em 01/09-Set/2018" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+      <Label text="%Sig.Trust" GridPane.rowIndex="3" />
+      <Label alignment="TOP_LEFT" text="✖ Certificado não confiável: assiantura errada" textFill="RED" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Label text="%T.Issuer" GridPane.rowIndex="4" />
+      <Label text="%T.RootCA" GridPane.rowIndex="5" />
+      <Label contentDisplay="CENTER" text="%Sig.AboutTheSignature" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+      <Label contentDisplay="CENTER" text="%Sig.AboutTheDigitalCertificate" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" />
+      <Label alignment="TOP_LEFT" text="Autoridade Certificadora Raiz Brasileira v2" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Label alignment="TOP_LEFT" text="AC CAIXA PF v2" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="10" />
+      <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+      <Label text="%T.Place" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="14">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label text="%Sig.Fullness" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" text="✖ Alguns campos obrigatórios estão faltando" textFill="RED" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+      <Label alignment="TOP_LEFT" text="%T.NonAvailableField" textFill="#8d8d8d" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+      <Label text="%Sig.FullReportAndAdditionalInformation" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="15">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="dfsdfd" wrapText="true" GridPane.columnSpan="2147483647" GridPane.rowIndex="16" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+      <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+   <rowConstraints>
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="ALWAYS" />
+   </rowConstraints>
+</GridPane>
