@@ -42,12 +42,12 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <TextField editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS">
+                  <TextField fx:id="SignPanelFiles" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </TextField>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Pick" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                  <Button fx:id="SignPanelFilesBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Pick" GridPane.columnIndex="3" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -57,7 +57,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                  <ComboBox fx:id="SignPanelSigner" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -67,17 +67,17 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <TextField promptText="%T.City" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="SignPanelPlace" promptText="%T.City" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </TextField>
-                  <ComboBox fx:id="SignPanelCountries" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="%T.Country" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <ComboBox fx:id="SignPanelCountry" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="%T.Country" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox fx:id="SignPanelStates" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="%T.State" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <ComboBox fx:id="SignPanelState" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="%T.State" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -90,7 +90,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <PasswordField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                  <PasswordField fx:id="SignPanelPassword" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -98,13 +98,13 @@
                         <Insets />
                      </GridPane.margin>
                   </PasswordField>
-                  <ProgressBar maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Sign" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <ProgressBar fx:id="SignPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                  <Button fx:id="SignPanelSignBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Sign" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </Button>
-                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Status" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+                  <Label fx:id="SignPanelStatus" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Status" GridPane.columnSpan="4" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </content></Tab>
@@ -199,8 +199,8 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="%T.PickAndAdd" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+                  <TextField fx:id="AdvPanelName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="AdvPanelAddBtn" mnemonicParsing="false" text="%T.PickAndAdd" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
                   <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
                   <Label contentDisplay="RIGHT" text="%T.Name" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                      <opaqueInsets>
@@ -217,10 +217,10 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </opaqueInsets>
                   </Label>
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="AdvPanelType" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <TextField alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="AdvPanelIssuerPFX" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets right="4.0" />
                            </HBox.margin>
@@ -233,24 +233,24 @@
                      </children>
                   </HBox>
                   <Label text="%T.Password" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <PasswordField fx:id="AdvPanelPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="%T.Validity" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
                   <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <DatePicker maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="AdvPanelNotBefore" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" HBox.hgrow="ALWAYS" />
                         <Label alignment="BASELINE_CENTER" maxHeight="1.7976931348623157E308" text="%T.date_until_date" HBox.hgrow="NEVER">
                            <HBox.margin>
                               <Insets left="8.0" right="8.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="AdvPanelNotAfter" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <Label text="%T.IssuerPassword" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-                  <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <Button mnemonicParsing="false" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-                  <ProgressBar maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+                  <PasswordField fx:id="AdvPanelIssuerPassword" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                  <ProgressBar fx:id="AdvPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                  <Label fx:id="AdvPanelStatus" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
                </children>
                <opaqueInsets>
                   <Insets />
