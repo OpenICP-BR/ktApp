@@ -14,4 +14,4 @@ Compile: `mvn clean compile`
 
 Run: `mvn clean compile exec:java`
 
-Generate final JAR with dependencies: `mvn clean compile assembly:single`
+Generate final JAR with dependencies: `mvn clean package`

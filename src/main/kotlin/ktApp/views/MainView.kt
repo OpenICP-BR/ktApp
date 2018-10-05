@@ -21,5 +21,6 @@ class MainView : View() {
         // Add states and Countries
         ufs.setItems(FXCollections.observableArrayList(this.messages["BR.States"].split(";")))
         countries.setItems(FXCollections.observableArrayList(this.messages["INT.Countries"].split(";")))
+        countries.selectionModel.select(32)
     }
 }
