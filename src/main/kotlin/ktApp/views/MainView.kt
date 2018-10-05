@@ -3,6 +3,8 @@ package com.github.OpenICP_BR.ktApp.views
 import com.github.OpenICP_BR.ICP.TESTING_ROOT_CA_SUBJECT
 import com.github.OpenICP_BR.ktApp.Store
 import com.github.OpenICP_BR.ICP.Certificate
+import com.github.OpenICP_BR.ICP.newCert
+import com.github.OpenICP_BR.ICP.newTestRootCA
 import tornadofx.*
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
@@ -81,7 +83,9 @@ class MainView : View() {
         // Ask user to select the file
         val fileChooser = FileChooser()
         fileChooser.title = this.messages["Adv.SelectTestingRootCA"]
-        fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.CertificateFile"], "*.crt"))
+        fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(
+                this.messages["T.CertificateFile"],
+                "*.crt", "*.pem", "*.cert"))
         var file = fileChooser.showOpenDialog(root.scene.window)
         if (file == null) {
             return
@@ -107,5 +111,17 @@ class MainView : View() {
             alert.isResizable = true
             alert.showAndWait()
         }
+    }
+
+    fun onAdvGenBtn(event: ActionEvent) {
+        // Select output file
+        val fileChooser = FileChooser()
+        fileChooser.title = ""
+        fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.PFXFile"], "*.pfx, *.p12"))
+        var file = fileChooser.showSaveDialog(root.scene.window)
+        if (file == null) {
+            return
+        }
+        println(file)
     }
 }
