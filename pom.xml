@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.OpenICP_BR</groupId>
     <artifactId>ktApp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>ktApp</name>
     <packaging>jar</packaging>
 
@@ -11,13 +11,14 @@
         <kotlin.version>1.2.60</kotlin.version>
         <tornadofx.version>1.7.17</tornadofx.version>
         <main.class>com.github.OpenICP_BR.ktApp.MyAppKt</main.class>
+        <app.name>OpenICP-BR</app.name>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.github.OpenICP_BR</groupId>
             <artifactId>ICP</artifactId>
-            <version>0.0.4-SNAPSHOT</version>
+            <version>0.0.5</version>
         </dependency>
         <dependency>
             <groupId>no.tornado</groupId>
@@ -60,6 +61,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>8.8.3</version>
                 <configuration>
+                    <appName>${app.name}</appName>
                     <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
