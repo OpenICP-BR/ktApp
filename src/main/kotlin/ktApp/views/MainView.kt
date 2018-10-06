@@ -37,7 +37,12 @@ class MainView : View() {
 
     override fun onBeforeShow() {
         super.onBeforeShow()
-        // Add states and Countries
+
+        // Set app name
+        this.primaryStage.titleProperty().unbind()
+        this.primaryStage.title = "OpenICP-BR"
+
+        // Add states and countries
         sign_state.items = FXCollections.observableArrayList(this.messages["BR.States"].split(";"))
         sign_country.items = FXCollections.observableArrayList(this.messages["INT.Countries"].split(";"))
         // Select Brazil
