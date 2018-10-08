@@ -12,6 +12,7 @@
         <tornadofx.version>1.7.17</tornadofx.version>
         <main.class>com.github.OpenICP_BR.ktApp.MyAppKt</main.class>
         <app.name>OpenICP-BR</app.name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -96,6 +97,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
                 <configuration>
                     <archive>
                         <manifest>
