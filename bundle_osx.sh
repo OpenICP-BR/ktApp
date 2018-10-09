@@ -25,7 +25,8 @@ ln -s ${JDK}/Contents/Home/lib jdk-10.jdk/Contents/Home/jre/
 cp ${JDK}/Info.plist jdk-10.jdk/Contents/
 
 rm -rf "OpenICP-BR.app"
-jar2app "ktApp-${VERSION}.jar" -n "OpenICP-BR" -i ../src/main/resources/logo.icns -s "${VERSION}" -v "${VERSION}" -r jdk-10.jdk || exit -1
+jar2app "ktApp-${VERSION}.jar" -n "OpenICP-BR" -i ../other_res/osx/logo.icns -s "${VERSION}" -v "${VERSION}" -r jdk-10.jdk || 
+exit -1
 echo -e "${GREEN}Generated .app bunlde ${NC}"
 
 mkdir OpenICP-BR.app/Contents/Java/lib || exit -1
