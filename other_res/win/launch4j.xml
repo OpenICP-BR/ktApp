@@ -4,7 +4,7 @@
   <headerType>gui</headerType>
   <jar>ktApp.jar</jar>
   <outfile>..\..\target\OpenICP-BR.exe</outfile>
-  <errTitle>Você precisa baixar e instalar o Java/JRE 10</errTitle>
+  <errTitle>Você precisa baixar e instalar o Java/JRE 10!</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
@@ -30,7 +30,7 @@
   <messages>
     <startupErr>Algo deu errado ao iniciar o OpenICP-BR.</startupErr>
     <bundledJreErr>O OpenICP-BR foi configurado para usar o JRE (Java Runtime Environment) que veio junto com o OpenICP-BR, entretanto, o JRE está faltando ou corrompido.</bundledJreErr>
-    <jreVersionErr>Você precisa ter o JRE (Java Runtime Environment) 10 instalado</jreVersionErr>
+    <jreVersionErr>Você precisa ter o JRE (Java Runtime Environment) 10 instalado.</jreVersionErr>
     <launcherErr>Algo deu errado ao iniciar o Java/JRE.</launcherErr>
     <instanceAlreadyExistsMsg>O OpenICP-BR já está rodando.</instanceAlreadyExistsMsg>
   </messages>
