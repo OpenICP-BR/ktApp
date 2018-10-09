@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
-  <dontWrapJar>false</dontWrapJar>
+  <dontWrapJar>true</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>E:\ktApp\target\ktApp.jar</jar>
-  <outfile>E:\ktApp\target\OpenICP-BR.exe</outfile>
+  <jar>ktApp.jar</jar>
+  <outfile>target\OpenICP-BR.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
-  <downloadUrl>http://java.com/download</downloadUrl>
+  <downloadUrl>http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jre-10.0.2_windows-x64_bin.exe</downloadUrl>
   <supportUrl></supportUrl>
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
@@ -19,8 +19,8 @@
     <windowTitle></windowTitle>
   </singleInstance>
   <jre>
-    <path>C:\Program Files\Java\jre-10.0.2</path>
-    <bundledJre64Bit>true</bundledJre64Bit>
+    <path>jre</path>
+    <bundledJre64Bit>false</bundledJre64Bit>
     <bundledJreAsFallback>true</bundledJreAsFallback>
     <minVersion>10</minVersion>
     <maxVersion></maxVersion>

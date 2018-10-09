@@ -27,14 +27,17 @@ SectionEnd
 Section "OpenICP" # In this section add your files or your folders.
   # Add your files with "File (Name of the file)", example: "File "$DESKTOP\MyApp.exe"" ($DESKTOP is Desktop folder); or add your folders always with "File (Name of the folder)\*", always add your folders with an asterisk, example: "File /r $DESKTOP\MyApp\*" (this will add its files and (with /r its subfolders)).
   SetOutPath $INSTDIR
-  File "..\..\target\ktApp.jar"
   File "..\..\target\OpenICP-BR.exe"
+  File "..\..\target\ktApp.jar"
+  File /r "..\..\src\main\resources\*"
   SetOutPath $INSTDIR\lib
   File "..\..\target\lib\*.jar"
-  File /r "..\..\src\main\resources\*"
+  SetOutPath $INSTDIR\jre
+  File /r "C:\Program Files\Java\jre-10.0.2"
   CreateDirectory "$SMPROGRAMS\OpenICP-BR"
   CreateShortCut "$SMPROGRAMS\OpenICP-BR\Remover OpenICP-BR.lnk" "$INSTDIR\uninstaller.exe"
   #CreateShortCut "$SMPROGRAMS\OpenICP-BR\OpenICP-BR.lnk" "java" '-jar "$INSTDIR\ktApp.jar"'
+  #CreateShortCut "$SMPROGRAMS\OpenICP-BR\OpenICP-BR.lnk" "$INSTDIR\OpenICP-BR.bat"
   CreateShortCut "$SMPROGRAMS\OpenICP-BR\OpenICP-BR.lnk" "$INSTDIR\OpenICP-BR.exe"
 SectionEnd
 
