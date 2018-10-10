@@ -2,9 +2,11 @@ language: java
 dist: trusty
 sudo: false
 jdk:
-- openjdk8
-before_install:
-  - sudo apt-get install openjfx -y
+- oraclejdk8
+addons:
+  apt:
+    packages:
+    - oracle-java8-installer
 script:
 - mvn package
 deploy:
