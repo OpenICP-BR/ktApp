@@ -24,6 +24,6 @@ Generate `.exe` file for Windows: `./bundle_win.bat`
   
 Generate `.deb` file for Ubuntu: `./bundle_deb.sh` (unfinished)
 
-Generate `.rpm` file for Fedora: `./bundle_deb.sh` (unfinished)
+Generate `.rpm` file for Fedora: `./bundle_rpm.sh` (unfinished)
 
 Generate `.appImage` file for Linux: `./bundle_app_image.sh` (unfinished)
