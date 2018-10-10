@@ -3,7 +3,7 @@ dist: trusty
 sudo: false
 jdk:
 - openjdk8
-before-install:
+before_install:
   - sudo apt-get install openjfx -y
 script:
 - mvn package
