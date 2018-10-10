@@ -1,10 +1,10 @@
 package com.github.OpenICP_BR.ktApp.views
 
-import com.github.OpenICP_BR.ICP.TESTING_ROOT_CA_SUBJECT
+import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
 import com.github.OpenICP_BR.ktApp.Store
-import com.github.OpenICP_BR.ICP.Certificate
-import com.github.OpenICP_BR.ICP.newCert
-import com.github.OpenICP_BR.ICP.newTestRootCA
+import com.github.OpenICP_BR.ktLib.Certificate
+import com.github.OpenICP_BR.ktLib.newCert
+import com.github.OpenICP_BR.ktLib.newTestRootCA
 import tornadofx.*
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent

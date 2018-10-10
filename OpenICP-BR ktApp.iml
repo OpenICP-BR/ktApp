@@ -36,7 +36,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.github.OpenICP_BR:ICP:0.0.5" level="project" />
+    <orderEntry type="library" name="Maven: com.github.OpenICP_BR:ktLib:0.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.cryptacular:cryptacular:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.59" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.60" level="project" />

@@ -1,6 +1,6 @@
 package com.github.OpenICP_BR.ktApp
 
-import com.github.OpenICP_BR.ICP.CAStore
+import com.github.OpenICP_BR.ktLib.CAStore
 
 import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.application.Application

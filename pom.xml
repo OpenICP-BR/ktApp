@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.OpenICP_BR</groupId>
     <artifactId>ktApp</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <name>ktApp</name>
     <packaging>jar</packaging>
 
@@ -18,10 +18,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.OpenICP_BR</groupId>
-            <artifactId>ICP</artifactId>
-            <version>0.0.5</version>
-        </dependency>
+        <groupId>com.github.OpenICP_BR</groupId>
+        <artifactId>ktLib</artifactId>
+        <version>0.0.8</version>
+    </dependency>
         <dependency>
             <groupId>no.tornado</groupId>
             <artifactId>tornadofx</artifactId>
@@ -115,12 +115,19 @@
 
     <repositories>
         <repository>
-            <id>LibOpenICP-BR-mvn-repo</id>
-            <url>https://raw.github.com/OpenICP-BR/ktLib/mvn-repo/</url>
             <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <enabled>false</enabled>
             </snapshots>
+            <id>bintray-gjvnq-mvn</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/gjvnq/mvn</url>
         </repository>
     </repositories>
+    <distributionManagement>
+        <repository>
+            <id>bintray-gjvnq-mvn</id>
+            <name>gjvnq-mvn</name>
+            <url>https://api.bintray.com/maven/gjvnq/mvn/ktLib/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
