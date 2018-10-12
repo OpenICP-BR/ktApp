@@ -15,7 +15,7 @@ echo
 echo -e "${GREEN}Deployed to maven repo${NC}"
 
 # Generate .deb file
-echo curl -v -T target/openicp-br-${VERSION}.deb -ugjvnq:<TOKEN>\
+echo curl -v -T target/openicp-br-${VERSION}.deb -ugjvnq:\<TOKEN\>\
     https://api.bintray.com/content/gjvnq/deb/openicp-br/${VERSION}/o/openicp/openicp-br-${VERSION}.deb
 curl -T target/openicp-br-${VERSION}.deb -ugjvnq:${BINTRAY_PASSWORD}\
     https://api.bintray.com/content/gjvnq/deb/openicp-br/${VERSION}/o/openicp/openicp-br-${VERSION}.deb
