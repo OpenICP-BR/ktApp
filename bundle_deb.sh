@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-VERSION=`cat pom.xml | grep version | head -n 1 | grep -oe "[0-9.]*"`
+VERSION=`./get_version.sh`
 
 fail () {
     echo -e "${RED}Got error code $? from previous command.${NC}"
