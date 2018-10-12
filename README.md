@@ -27,3 +27,11 @@ Generate `.deb` file for Ubuntu: `./bundle_deb.sh` (unfinished)
 Generate `.rpm` file for Fedora: `./bundle_deb.sh` (unfinished)
 
 Generate `.appImage` file for Linux: `./bundle_app_image.sh` (unfinished)
+
+### Debian/Ubuntu repository
+
+Run: `echo "deb https://dl.bintray.com/gjvnq/deb /" | sudo tee -a /etc/apt/sources.list`
+
+Or add the following to `/etc/apt/sources.list`:
+
+    deb https://dl.bintray.com/gjvnq/deb /

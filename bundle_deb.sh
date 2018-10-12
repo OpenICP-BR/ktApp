@@ -6,17 +6,12 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-VERSION=$1
+VERSION=`cat pom.xml | grep version | head -n 1 | grep -oe "[0-9.]*"`
 
 fail () {
     echo -e "${RED}Got error code $? from previous command.${NC}"
     exit -1
 }
-
-if [[ -z "${VERSION}" ]]; then
-    echo -e "${RED}You MUST specify the version number${NC}"
-    exit -2
-fi
 
 DEB_PATH=target/openicp-br-${VERSION}.deb
 

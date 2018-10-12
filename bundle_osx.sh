@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-VERSION=$1
+VERSION=`cat pom.xml | grep version | head -n 1 | grep -oe "[0-9.]*"`
 JDK=/Library/Java/JavaVirtualMachines/jdk-10.jdk
 
 fail () {
@@ -18,12 +18,8 @@ fail () {
     exit -1
 }
 
-if [[ -z "${VERSION}" ]]; then
-    echo -e "${RED}You MUST specify the version number${NC}"
-    exit -2
-fi
-if [[ "$2" ]]; then
-    JDK=$2
+if [[ "$1" ]]; then
+    JDK=$1
 fi
 echo -e "Using JDK on: ${JDK}"
 
