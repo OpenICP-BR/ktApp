@@ -8,6 +8,7 @@ addons:
     packages:
     - oracle-java8-installer
     - xmlstarlet
+install: /bin/true
 script:
 - cp .travis.settings.xml $HOME/.m2/settings.xml
 - ./fix_version.sh
