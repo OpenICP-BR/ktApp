@@ -3,7 +3,6 @@
 VERSION=`cat pom.xml | grep version | head -n 1 | grep -oe "[0-9.]*"`
 
 # Deploy jar
-cp .travis.settings.xml $HOME/.m2/settings.xml
 mvn deploy -DskipTests
 
 # Generate .deb file
