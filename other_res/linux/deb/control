@@ -1,0 +1,9 @@
+Package: openicp-br
+Version: {VERSION}
+Architecture: all
+Maintainer: G Queiroz <gabrieljvnq@gmail.com>
+Installed-Size: {SIZE}
+Section: doc
+Priority: optional
+Depends: openjfx
+Description: a simple desktop app for CAdES digital signatures according to ICP-Brasil (Brazil's PKI) rules.
