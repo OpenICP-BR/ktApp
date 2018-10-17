@@ -7,7 +7,7 @@ BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR/${VERSION}
+BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${VERSION}
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
     echo -e "${RED}You MUST set the environment variable: ${BINTRAY_PASSWORD}${NC}"
@@ -22,7 +22,6 @@ upload() {
     curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${BINTRY_URL}/${DST}/${FILENAME}?publish=1
     echo
     echo -e "${GREEN}Deployed ${DST}/${FILENAME}${NC}"
-
 }
 
 echo -e "${GREEN}Deploying version: ${BLUE}${VERSION}${NC}..."
