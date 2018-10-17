@@ -2,11 +2,11 @@ language: java
 dist: trusty
 sudo: false
 jdk:
-- openjdk8
+- oraclejdk8
 addons:
   apt:
     packages:
-    - openjfx
+    - oracle-java8-installer
     - xmlstarlet
 install: /bin/true
 script:

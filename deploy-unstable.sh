@@ -18,18 +18,20 @@ upload() {
     FILENAME=$1
     SRC=$2
     DST=$3
-    echo curl -v -T ${SRC}/${FILENAME} -ugjvnq:\<TOKEN\> ${BINTRY_URL}/${DST}/${FILENAME}
-    curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${BINTRY_URL}/${FILENAME}
+    echo curl -v -T ${SRC}/${FILENAME} -ugjvnq:\<TOKEN\> ${BINTRY_URL}/${DST}/${FILENAME}?publish=1
+    curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${BINTRY_URL}/${DST}/${FILENAME}?publish=1
     echo
-    echo -e "${GREEN}Deployed ${FILENAME}${NC}"
+    echo -e "${GREEN}Deployed ${DST}/${FILENAME}${NC}"
 
 }
 
 echo -e "${GREEN}Deploying version: ${BLUE}${VERSION}${NC}..."
 
 # Deploy JARs
-upload "ktApp-${VERSION}.jar" "target" ""
-LIBS=`find target/lib -type f`
+cp "target/ktApp-${VERSION}.jar" "target/ktApp.jar"
+upload "ktApp.jar" "target" ""
+LIBS=`find target/lib -type f -iname "*.jar"`
 for LIB in $LIBS; do
+    LIB=`basename ${LIB}`
     upload "${LIB}" "target/lib" "/lib"
 done
