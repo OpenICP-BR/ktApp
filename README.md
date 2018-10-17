@@ -16,6 +16,20 @@ Run: `mvn exec:java`
 
 Generate final `.jar` and copy dependencies: `mvn package`
 
+Compile dependencies:
+
+  * [XMLStarlet](http://xmlstar.sourceforge.net/)
+  * [Git](https://git-scm.com) - Needed *not only* for downloading, but also for compile scripts
+  * [Kotlin](https://kotlinlang.org/)
+  * [Maven](https://maven.apache.org/)
+
+General instructions:
+
+```
+./fix_version.sh # very important
+mvn package
+```
+
 Generate `.dmg` file for macOS: `./bundle_osx.sh`
  * Needs: <https://github.com/sindresorhus/create-dmg>, <https://github.com/Jorl17/jar2app>
 
@@ -23,6 +37,8 @@ Generate `.exe` file for Windows: `./bundle_win.bat`
   * Needs: <http://launch4j.sourceforge.net/>, <http://nsis.sourceforge.net/Main_Page>
   
 Generate `.deb` file for Ubuntu: `./bundle_deb.sh`
+  * Needs: [dpkg-deb](https://manpages.debian.org/testing/dpkg/dpkg-deb.1.en.html)
+
 
 Generate `.rpm` file for Fedora: `./bundle_rpm.sh` (unfinished)
 

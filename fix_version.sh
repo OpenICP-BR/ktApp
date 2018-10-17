@@ -13,6 +13,12 @@ VERSION=${DATE}-${COMMIT}
 TAGS=`git tag -l --points-at HEAD | wc -l`
 if [ "$TAGS" != "0" ]; then
     VERSION=`git tag -l --points-at HEAD | head -n 1`
+else
+    BRANCH=`git rev-parse --abbrev-ref HEAD`
+    COUNT=`git rev-list --count HEAD`
+    COMMIT=`git rev-parse HEAD`
+    DATE=`git log -1 --date=short --pretty=format:%cd`
+    VERSION=${COUNT}.${BRANCH}.${DATE}.${COMMIT}
 fi
 
 echo -e "${GREEN}Setting version to: ${BLUE}${VERSION}${NC}"
