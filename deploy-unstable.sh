@@ -7,7 +7,8 @@ BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${VERSION}
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
     echo -e "${RED}You MUST set the environment variable: ${BINTRAY_PASSWORD}${NC}"
@@ -23,20 +24,23 @@ upload() {
     FILENAME=$1
     SRC=$2
     DST=$3
-    ARGS="-o - -w \\n%{http_code}\\n ${BINTRY_URL}/${DST}/${FILENAME}?publish=1"
-    echo curl -T ${SRC}/${FILENAME} $ARGS
-    curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${ARGS} | tee curl.log
+    ARGS="-o - -w \\n%{http_code}\\n ${BINTRY_URL}/${DST}/${FILENAME}?publish=1&override=0"
+    echo curl -T ./${SRC}/${FILENAME} $ARGS
+    curl -T ./${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${ARGS} | tee curl.log
     cat curl.log | tail -n 1 | grep -e "2[0-9]\{2\}" > /dev/null || fail
     echo -e "${GREEN}Deployed ${DST}/${FILENAME}${NC}"
+    rm curl.log
 }
 
 echo -e "${GREEN}Deploying version: ${BLUE}${VERSION}${NC}..."
 
-# Deploy JARs
-cp "target/ktApp-${VERSION}.jar" "target/ktApp.jar"
-upload "ktApp.jar" "target" ""
+# Zip all
 LIBS=`find target/lib -type f -iname "*.jar"`
-for LIB in $LIBS; do
-    LIB=`basename ${LIB}`
-    upload "${LIB}" "target/lib" "/lib"
-done
+cp target/OpenICP-BR-unstable-${VERSION}.jar target/OpenICP-BR-unstable.jar
+ZIP=target/OpenICP-BR-unstable-${VERSION}.zip
+rm $ZIP
+zip ${ZIP} target/ktApp.jar $LIBS
+echo -e "${GREEN}Generated zip file: ${BLUE}${ZIP}${NC}"
+
+# Upload file
+upload $(basename $ZIP) target

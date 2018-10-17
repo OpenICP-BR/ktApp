@@ -16,7 +16,7 @@ if [ "$TAGS" != "0" ]; then
 else
     BRANCH=`git rev-parse --abbrev-ref HEAD`
     COUNT=`git rev-list --count HEAD`
-    COMMIT=`git rev-parse HEAD`
+    COMMIT=`git rev-parse --short HEAD`
     DATE=`git log -1 --date=short --pretty=format:%cd`
     VERSION=${COUNT}.${BRANCH}.${DATE}.${COMMIT}
 fi

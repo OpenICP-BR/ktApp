@@ -8,7 +8,7 @@
 
 A simple desktop app for [CAdES](https://en.wikipedia.org/wiki/CAdES_(computing)) digital signatures according to [ICP-Brasil](https://www.iti.gov.br) (Brazil's PKI) [rules](https://www.iti.gov.br/legislacao/61-legislacao/504-documentos-principais).
 
-Downlaod latest unstable: [![Download unstable](https://api.bintray.com/packages/gjvnq/misc/OpenICP-BR.unstable/images/download.svg) ](https://bintray.com/gjvnq/misc/OpenICP-BR/_latestVersion)
+Downlaod latest unstable: https://bintray.com/gjvnq/misc/OpenICP-BR.unstable/master#files
 
 
 ## Compiling and Packaging
