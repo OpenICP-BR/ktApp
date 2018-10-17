@@ -7,14 +7,17 @@ addons:
   apt:
     packages:
     - oracle-java8-installer
+    - xmlstarlet
+install: /bin/true
 script:
+- cp .travis.settings.xml $HOME/.m2/settings.xml
+- ./fix_version.sh
 - mvn package
+- ./bundle_deb.sh
 cache:
   directories:
   - $HOME/.m2
 deploy:
-  provider: script
-  script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy -DskipTests
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: script
+    script: ./deploy.sh
+    skip_cleanup: true

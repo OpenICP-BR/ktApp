@@ -22,8 +22,16 @@ Generate `.dmg` file for macOS: `./bundle_osx.sh`
 Generate `.exe` file for Windows: `./bundle_win.bat`
   * Needs: <http://launch4j.sourceforge.net/>, <http://nsis.sourceforge.net/Main_Page>
   
-Generate `.deb` file for Ubuntu: `./bundle_deb.sh` (unfinished)
+Generate `.deb` file for Ubuntu: `./bundle_deb.sh`
 
 Generate `.rpm` file for Fedora: `./bundle_rpm.sh` (unfinished)
 
 Generate `.appImage` file for Linux: `./bundle_app_image.sh` (unfinished)
+
+### Debian/Ubuntu repository
+
+Run: `echo "deb https://dl.bintray.com/gjvnq/deb /" | sudo tee -a /etc/apt/sources.list`
+
+Or add the following to `/etc/apt/sources.list`:
+
+    deb https://dl.bintray.com/gjvnq/deb /

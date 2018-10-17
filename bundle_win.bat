@@ -1,5 +1,7 @@
 @echo OFF
 
+rem BUG: uninstaller not working
+
 set VERSION=%1
 set LAUNCH4JC="C:\Program Files (x86)\Launch4j\launch4jc.exe"
 set NSIS="C:\NSIS\Bin\makensis.exe"
