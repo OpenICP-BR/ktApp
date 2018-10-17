@@ -14,13 +14,19 @@ if [ "${BINTRAY_PASSWORD}" == "" ]; then
     exit -1
 fi
 
+fail () {
+    echo -e "${RED}Got error code $? from previous command.${NC}"
+    exit -1
+}
+
 upload() {
     FILENAME=$1
     SRC=$2
     DST=$3
-    echo curl -v -T ${SRC}/${FILENAME} -ugjvnq:\<TOKEN\> ${BINTRY_URL}/${DST}/${FILENAME}?publish=1
-    curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${BINTRY_URL}/${DST}/${FILENAME}?publish=1
-    echo
+    ARGS="-o - -w \\n%{http_code}\\n ${BINTRY_URL}/${DST}/${FILENAME}?publish=1"
+    echo curl -T ${SRC}/${FILENAME} $ARGS
+    curl -T ${SRC}/${FILENAME} -ugjvnq:${BINTRAY_PASSWORD} ${ARGS} | tee curl.log
+    cat curl.log | tail -n 1 | grep -e "2[0-9]\{2\}" > /dev/null || fail
     echo -e "${GREEN}Deployed ${DST}/${FILENAME}${NC}"
 }
 
