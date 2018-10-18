@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+./fix_version.sh
 VERSION=`./get_version.sh`
 
 GREEN='\033[0;32m'

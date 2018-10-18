@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.OpenICP_BR</groupId>
   <artifactId>ktApp</artifactId>
-  <version>48.master.2018-10-17.83aa95d</version>
+  <version>50.master.2018-10-17.21a4f4a</version>
   <name>ktApp</name>
   <packaging>jar</packaging>
   <properties>
