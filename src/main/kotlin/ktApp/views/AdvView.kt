@@ -79,37 +79,7 @@ class AdvView() : View() {
     }
 
     fun onAddBtn(event: ActionEvent) {
-        // Ask user to select the file
-        val fileChooser = FileChooser()
-        fileChooser.title = this.messages["Adv.SelectTestingRootCA"]
-        fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(
-                this.messages["T.CertificateFile"],
-                "*.crt", "*.pem", "*.cert"))
-        var file = fileChooser.showOpenDialog(root.scene.window)
-        if (file == null) {
-            return
-        }
-        val cert = Certificate(file.getAbsolutePath())
-
-        // Try to add as a testing Root CA
-        try {
-            Store.addTestingCA(cert)
-            // Alert the user
-            master.tainted_warn.minHeight = Region.USE_COMPUTED_SIZE
-            master.tainted_warn.prefHeight = Region.USE_COMPUTED_SIZE
-            master.tainted_warn.maxHeight = Region.USE_COMPUTED_SIZE
-        } catch (e: IllegalArgumentException) {
-            // Show an error message
-            val alert = Alert(Alert.AlertType.ERROR)
-            alert.title = this.messages["Errs.InvalidTestingCertificate.Title"]
-            alert.headerText = this.messages["Errs.InvalidTestingCertificate.Header"]
-            alert.contentText = this.messages["Errs.InvalidTestingCertificate.Content"].format(
-                    TESTING_ROOT_CA_SUBJECT,
-                    cert.fullSubject,
-                    cert.fullIssuer)
-            alert.isResizable = true
-            alert.showAndWait()
-        }
+        println("function moved to main menu")
     }
 
     fun onGenBtn(event: ActionEvent) {
