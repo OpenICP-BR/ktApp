@@ -4,14 +4,21 @@
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 VERSION=`./get_version.sh`
+JAR=target/ktApp-${VERSION}.jar
 
 fail () {
     echo -e "${RED}Got error code $? from previous command.${NC}"
     exit -1
 }
+
+if [ ! -f "${JAR}" ]; then
+    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\nPlease run: mvn clean package${NC}"
+    exit -1
+fi
 
 DEB_PATH=target/openicp-br-${VERSION}.deb
 
@@ -27,7 +34,7 @@ done
 echo -e "${GREEN}Cleaned previous files and created structure ${NC}"
 
 # Copy files
-cp -v target/ktApp-${VERSION}.jar target/ktApp.jar || fail
+cp -v ${JAR} target/ktApp.jar || fail
 cp -v other_res/linux/openicpbr target/deb/usr/bin/ || fail
 chmod +x target/deb/usr/bin/openicpbr || fail
 cp -v target/ktApp.jar target/deb/usr/share/openicp-br/ || fail
