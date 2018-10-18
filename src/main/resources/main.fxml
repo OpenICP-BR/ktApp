@@ -276,7 +276,7 @@
                         </HBox>
                         <Label text="%T.IssuerPassword" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
                         <PasswordField fx:id="AdvPanelIssuerPassword" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false"  text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+                        <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
                         <ProgressBar fx:id="AdvPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
                         <Label fx:id="AdvPanelStatus" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
                      </children>
@@ -291,9 +291,9 @@
             </Tab>
             <Tab text="%T.About">
                <content>
-                  <GridPane fx:id="AboutTab">
+                  <GridPane fx:id="AboutTab" hgap="4.0" vgap="4.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -304,22 +304,23 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="%About.Website">
-                           <opaqueInsets>
-                              <Insets left="4.0" right="4.0" />
-                           </opaqueInsets>
-                        </Label>
-                        <Hyperlink text="openicp-br.github.io" GridPane.columnIndex="1">
-                           <opaqueInsets>
-                              <Insets left="4.0" right="4.0" />
-                           </opaqueInsets>
-                        </Hyperlink>
+                        <Label text="%About.Website" />
                         <Label text="%About.ktAppVer" GridPane.rowIndex="1" />
-                        <Label fx:id="AboutKtAppVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="AboutKtAppVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="4.0" />
+                           </GridPane.margin></Label>
                         <Label text="%About.ktLibVer" GridPane.rowIndex="2" />
                         <Label text="%About.javaVer" GridPane.rowIndex="3" />
-                        <Label fx:id="AboutKtLibVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="AboutJavaVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="AboutKtLibVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="4.0" />
+                           </GridPane.margin></Label>
+                        <Label fx:id="AboutJavaVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="4.0" />
+                           </GridPane.margin></Label>
+                        <Hyperlink text="openicp-br.github.io" GridPane.columnIndex="1" />
                      </children>
                      <opaqueInsets>
                         <Insets />

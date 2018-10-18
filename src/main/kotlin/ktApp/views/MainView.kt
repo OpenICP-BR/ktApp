@@ -3,6 +3,7 @@ package com.github.OpenICP_BR.ktApp.views
 import javafx.scene.image.Image
 import tornadofx.*
 import javafx.scene.layout.VBox
+import main.kotlin.ktApp.views.AboutView
 import main.kotlin.ktApp.views.AdvView
 import main.kotlin.ktApp.views.SignView
 import java.nio.file.Files
@@ -17,6 +18,7 @@ class MainView : View() {
     override val root : VBox by fxml("/main.fxml")
     val signView : SignView = SignView()
     val advView : AdvView = AdvView()
+    val aboutView : AboutView = AboutView()
     val tainted_warn : VBox by fxid("TaintedWarning")
 
     init {
@@ -25,6 +27,12 @@ class MainView : View() {
         signView.master = this
         advView.fxmlLoader = this.fxmlLoader
         advView.master = this
+        aboutView.fxmlLoader = this.fxmlLoader
+        aboutView.master = this
+    }
+
+    override fun onBeforeShow() {
+        super.onBeforeShow()
 
         // Set icon
         var res = MainView::class.java.getResourceAsStream("/logo.svg")
@@ -38,31 +46,12 @@ class MainView : View() {
         res = MainView::class.java.getResourceAsStream("/logo-16x16.png")
         this.primaryStage.icons.add(Image(res));
 
-        // List all reource files
-        val uri = MainView::class.java!!.getResource("").toURI()
-        val myPath: Path
-        if (uri.getScheme().equals("jar")) {
-            val fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap<String, Object>())
-            myPath = fileSystem.getPath("")
-        } else {
-            println(uri)
-            myPath = Paths.get(uri)
-        }
-        val walk = Files.walk(myPath, 1)
-        val it = walk.iterator()
-        while (it.hasNext()) {
-            System.out.println(it.next())
-        }
-    }
-
-    override fun onBeforeShow() {
-        super.onBeforeShow()
-
         // Set app name
         this.primaryStage.titleProperty().unbind()
         this.primaryStage.title = "OpenICP-BR"
 
         signView.onBeforeShow()
         advView.onBeforeShow()
+        aboutView.onBeforeShow()
     }
 }
