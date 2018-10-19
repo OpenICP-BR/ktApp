@@ -14,24 +14,8 @@ val Store = CAStore()
 
 class MyApp: App(MainView::class) {
     override fun start(stage: Stage) {
-        try {
-            val splash = SplashScreen.getSplashScreen()
-            println("MyApp.start 5")
-            splash.close()
-            println("MyApp.start 6")
-        } catch (e: Exception) {
-            println("MyApp.start 7")
-            e.printStackTrace()
-        }
-
-        println("MyApp.start 1")
         super.start(stage)
-        println("MyApp.start 2")
-        Thread.sleep(1000);
-        println("MyApp.start 3")
         openOnNewWindow(MainView(), stage)
-        println("MyApp.start 4")
-
     }
 }
 
