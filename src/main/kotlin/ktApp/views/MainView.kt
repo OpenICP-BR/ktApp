@@ -14,10 +14,13 @@ import javafx.stage.FileChooser
 import main.kotlin.ktApp.views.AboutView
 import main.kotlin.ktApp.views.AdvView
 import main.kotlin.ktApp.views.SignView
+import java.util.*
 
 
 class MainView : View() {
     override val root : VBox by fxml("/main.fxml")
+
+    lateinit var language : String
     val signView : SignView = SignView()
     val advView : AdvView = AdvView()
     val aboutView : AboutView = AboutView()
@@ -25,6 +28,8 @@ class MainView : View() {
     val mainMenu : MenuBar by fxid("MainMenu")
 
     init {
+        language = FX.locale.toString()
+
         // Enable communication between the views and allow FXML to work
         signView.fxmlLoader = this.fxmlLoader
         signView.master = this
@@ -50,8 +55,7 @@ class MainView : View() {
         this.primaryStage.icons.add(Image(res));
 
         // Set app name
-        this.primaryStage.titleProperty().unbind()
-        this.primaryStage.title = "OpenICP-BR"
+        this.title = "OpenICP-BR"
 
         // Fix macOS menu
         val os = System.getProperty("os.name");
@@ -66,14 +70,26 @@ class MainView : View() {
     }
 
     fun switchLangToPT(evt : ActionEvent) {
-        this.onSwitchLanguage("pt")
+        this.onSwitchLanguage(Locale("pt", "BR"))
     }
 
     fun switchLangToEN(evt : ActionEvent) {
-        this.onSwitchLanguage("en")
+        this.onSwitchLanguage(Locale("en", "US"))
     }
 
-    fun onSwitchLanguage(lang : String ) {}
+    fun onSwitchLanguage(locale : Locale) {
+        // Do not change the language to the same one
+        if (language == locale.toString()) {
+            return
+        }
+
+        FX.locale = locale
+        FX.messages = ResourceBundle.getBundle("messages", locale, FXResourceBundleControl)
+        this.messages = FX.messages
+        val new_view = MainView()
+        new_view.onBeforeShow()
+        this.replaceWith(new_view)
+    }
 
     fun showImportRootCA(evt : ActionEvent) {
         // Ask user to select the file

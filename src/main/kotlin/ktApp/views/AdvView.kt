@@ -29,7 +29,6 @@ class AdvView() : View() {
     val issuer_pass : TextField by fxid("AdvPanelIssuerPassword")
     val not_before : DatePicker by fxid("AdvPanelNotBefore")
     val not_after : DatePicker by fxid("AdvPanelNotAfter")
-    val add_btn : Button by fxid("AdvPanelAddBtn")
     val gen_btn : Button by fxid("AdvPanelGenBtn")
     var old_name: String? = ""
 
@@ -52,7 +51,6 @@ class AdvView() : View() {
         not_after.value = not_before.value.plusYears(1)
 
         // Bind events
-        add_btn.setOnAction{ e -> onAddBtn(e) }
         gen_btn.setOnAction{ e -> onGenBtn(e) }
     }
 
@@ -76,10 +74,6 @@ class AdvView() : View() {
             issuer_pfx.isDisable = false
             issuer_btn.isDisable = false
         }
-    }
-
-    fun onAddBtn(event: ActionEvent) {
-        println("function moved to main menu")
     }
 
     fun onGenBtn(event: ActionEvent) {
