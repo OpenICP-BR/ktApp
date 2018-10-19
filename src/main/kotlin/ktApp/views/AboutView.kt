@@ -39,6 +39,7 @@ class AboutView() : View() {
         val stage = Stage()
         stage.title = this.messages["T.About"]
         stage.scene = scene
+        stage.isResizable = false
         stage.show()
     }
 

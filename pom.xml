@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.OpenICP_BR</groupId>
   <artifactId>ktApp</artifactId>
-  <version>50.master.2018-10-17.21a4f4a</version>
+  <version>56.master.2018-10-18.f582808</version>
   <name>ktApp</name>
   <packaging>jar</packaging>
   <properties>
@@ -32,8 +32,8 @@
     </dependency>
   </dependencies>
   <build>
-      <sourceDirectory>src/main/kotlin</sourceDirectory>
-      <resources>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <resources>
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>

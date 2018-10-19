@@ -66,11 +66,11 @@ class MainView : View() {
     }
 
     fun switchLangToPT(evt : ActionEvent) {
-        this.onSwitchLanguage(Locale("pt", "BR"))
+        this.onSwitchLanguage(Locale("pt"))
     }
 
     fun switchLangToEN(evt : ActionEvent) {
-        this.onSwitchLanguage(Locale("en", "US"))
+        this.onSwitchLanguage(Locale("en"))
     }
 
     fun onSwitchLanguage(locale : Locale) {
@@ -78,9 +78,10 @@ class MainView : View() {
         if (language == locale.toString()) {
             return
         }
+        println("Switching language to: "+locale.toString())
 
         FX.locale = locale
-        FX.messages = ResourceBundle.getBundle("messages", locale, FXResourceBundleControl)
+        FX.messages = ResourceBundle.getBundle("Messages", locale, FXResourceBundleControl)
         this.messages = FX.messages
         val new_view = MainView()
         new_view.onBeforeShow()
