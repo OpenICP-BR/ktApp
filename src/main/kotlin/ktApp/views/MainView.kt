@@ -1,6 +1,7 @@
 package com.github.OpenICP_BR.ktApp.views
 
 import com.github.OpenICP_BR.ktApp.Store
+import com.github.OpenICP_BR.ktApp.openOnNewWindow
 import com.github.OpenICP_BR.ktLib.Certificate
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
 import javafx.event.ActionEvent
@@ -59,6 +60,7 @@ class MainView : View() {
         // Fix macOS menu bar
         val os = System.getProperty("os.name");
         if (os != null && os.startsWith("Mac")) {
+            println("Seting macOS menu")
             mainMenu.useSystemMenuBarProperty().set(true)
         }
 
@@ -127,7 +129,6 @@ class MainView : View() {
     fun showGenTestingCert(evt : ActionEvent) {}
 
     fun showAbout(evt : ActionEvent) {
-        val about = AboutView()
-        about.openNewWindow()
+        openOnNewWindow(AboutView())
     }
 }

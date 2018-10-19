@@ -15,6 +15,7 @@ VERSION=`./get_version.sh`
 JAR=target/ktApp-${VERSION}.jar
 JDK=jdk-10.jdk
 JDK_PATH=/Library/Java/JavaVirtualMachines/${JDK}/Contents
+JAR2OPTS="--name 'OpenICP-BR' --icon ../other_res/osx/logo.icns --short-version '${VERSION}' --version '${VERSION}' --runtime ${JDK} --use-osx-menubar --low-res-mode --copyright='G Queiroz' "
 
 fail () {
     echo -e "${RED}Got error code $? from previous command.${NC}"
@@ -46,7 +47,7 @@ cp -Hva ${JDK_PATH}/Info.plist ${JDK}/Contents/ || fail
 
 rm -rf "OpenICP-BR.app" || fail
 cp "$(basename "${JAR}")" "ktApp.jar"
-jar2app "ktApp.jar" -n "OpenICP-BR" -i ../other_res/osx/logo.icns -s "${VERSION}" -v "${VERSION}" -r ${JDK} || fail
+jar2app "ktApp.jar" ${JAR2APP_OPTS} || fail
 echo -e "${GREEN}Generated .app bundle ${NC}"
 
 mkdir OpenICP-BR.app/Contents/Java/lib || fail

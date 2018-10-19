@@ -24,23 +24,16 @@ class AboutView() : View() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
+        currentStage?.isResizable = false
+        currentStage?.titleProperty()?.unbind()
+        currentStage?.title = messages["T.About"]
+
         val properties = Properties()
         properties.load(AboutView::class.java.getResourceAsStream("/info.properties"));
 
         kt_app_ver.text = properties.getProperty("version")
         java_ver.text = System.getProperty("java.version")
         os_ver.text = System.getProperty("os.name") + " - " + System.getProperty("os.version")
-    }
-
-    fun openNewWindow() {
-        this.onBeforeShow()
-
-        val scene = Scene(root)
-        val stage = Stage()
-        stage.title = this.messages["T.About"]
-        stage.scene = scene
-        stage.isResizable = false
-        stage.show()
     }
 
     fun openWebsite() {

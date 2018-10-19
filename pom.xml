@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.OpenICP_BR</groupId>
   <artifactId>ktApp</artifactId>
-  <version>0.0.8</version>
+  <version>59.master.2018-10-19.6be8f90</version>
   <name>ktApp</name>
   <packaging>jar</packaging>
   <properties>
@@ -110,6 +110,9 @@
               <classpathPrefix>lib/</classpathPrefix>
               <mainClass>${main.class}</mainClass>
             </manifest>
+            <manifestEntries>
+              <SplashScreen-Image>splash.gif</SplashScreen-Image>
+            </manifestEntries>
           </archive>
         </configuration>
       </plugin>

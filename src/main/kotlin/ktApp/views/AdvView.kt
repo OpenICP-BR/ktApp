@@ -35,10 +35,6 @@ class AdvView() : View() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
-        // Set app name
-        this.primaryStage.titleProperty().unbind()
-        this.primaryStage.title = "OpenICP-BR"
-
         // Add certificate types
         type.items = FXCollections.observableArrayList(this.messages["Adv.Types"].split(";"))
 
