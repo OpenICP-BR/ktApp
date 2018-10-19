@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="AboutTab" hgap="4.0" vgap="4.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="%About.ktAppVer" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="AboutKtAppVerLbl" text="Label" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="4.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="%About.ktLibVer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label text="%About.javaVer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label fx:id="AboutKtLibVerLbl" text="Label" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="4.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="AboutJavaVerLbl" text="Label" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="4.0" />
+         </GridPane.margin>
+      </Label>
+      <Hyperlink focusTraversable="false" onAction="#openWebsite" text="openicp-br.github.io" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label text="%About.osVer" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Label fx:id="AboutOSLbl" text="Label" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="4.0" />
+         </GridPane.margin>
+      </Label>
+      <ImageView fitHeight="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+         <image>
+            <Image url="@logo-128x128.png" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </GridPane.margin>
+      </ImageView>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="-Infinity" />
+      <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="-Infinity" />
+   </columnConstraints>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+   <rowConstraints>
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+</GridPane>

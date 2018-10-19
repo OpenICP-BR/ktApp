@@ -23,7 +23,6 @@ class MainView : View() {
     lateinit var language : String
     val signView : SignView = SignView()
     val advView : AdvView = AdvView()
-    val aboutView : AboutView = AboutView()
     val tainted_warn : VBox by fxid("TaintedWarning")
     val mainMenu : MenuBar by fxid("MainMenu")
 
@@ -35,8 +34,6 @@ class MainView : View() {
         signView.master = this
         advView.fxmlLoader = this.fxmlLoader
         advView.master = this
-        aboutView.fxmlLoader = this.fxmlLoader
-        aboutView.master = this
     }
 
     override fun onBeforeShow() {
@@ -66,7 +63,6 @@ class MainView : View() {
         // Show tabs
         signView.onBeforeShow()
         advView.onBeforeShow()
-        aboutView.onBeforeShow()
     }
 
     fun switchLangToPT(evt : ActionEvent) {
@@ -127,5 +123,8 @@ class MainView : View() {
 
     fun showGenTestingCert(evt : ActionEvent) {}
 
-    fun showAbout(evt : ActionEvent) {}
+    fun showAbout(evt : ActionEvent) {
+        val about = AboutView()
+        about.openNewWindow()
+    }
 }

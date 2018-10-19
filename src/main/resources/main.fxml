@@ -298,55 +298,6 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="%T.About">
-               <content>
-                  <GridPane fx:id="AboutTab" hgap="4.0" vgap="4.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="%About.Website" />
-                        <Label text="%About.ktAppVer" GridPane.rowIndex="1" />
-                        <Label fx:id="AboutKtAppVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="4.0" />
-                           </GridPane.margin></Label>
-                        <Label text="%About.ktLibVer" GridPane.rowIndex="2" />
-                        <Label text="%About.javaVer" GridPane.rowIndex="3" />
-                        <Label fx:id="AboutKtLibVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="4.0" />
-                           </GridPane.margin></Label>
-                        <Label fx:id="AboutJavaVerLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="4.0" />
-                           </GridPane.margin></Label>
-                        <Hyperlink text="openicp-br.github.io" GridPane.columnIndex="1" />
-                        <Label text="%About.osVer" GridPane.rowIndex="4" />
-                        <Label fx:id="AboutOSLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets left="4.0" />
-                           </GridPane.margin>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
-                  </GridPane>
-               </content>
-            </Tab>
         </tabs>
       </TabPane>
    </children>
