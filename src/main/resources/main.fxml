@@ -44,7 +44,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#showGenTestingCert" text="%T.GenerateTestingCertificate" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="%T.Help">
+          <Menu fx:id="HelpMenu" mnemonicParsing="false" text="%T.Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#showAbout" text="%T.About" />
             </items>

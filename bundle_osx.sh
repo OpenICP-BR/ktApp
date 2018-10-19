@@ -13,7 +13,8 @@ NC='\033[0m' # No Color
 
 VERSION=`./get_version.sh`
 JAR=target/ktApp-${VERSION}.jar
-JDK=/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents
+JDK=jdk-10.jdk
+JDK_PATH=/Library/Java/JavaVirtualMachines/${JDK}/Contents
 
 fail () {
     echo -e "${RED}Got error code $? from previous command.${NC}"
@@ -26,25 +27,26 @@ if [ ! -f "${JAR}" ]; then
 fi
 
 if [[ "$1" ]]; then
-    JDK=$1
+    JDK_PATH=$1
 fi
-echo -e "Using JDK on: ${JDK}"
+echo -e "Using JDK on: ${JDK_PATH}"
 
 # Get on the correct directory
 cd target
 
 # Prepare JRE for bundling
-rm -vrf jdk-10.jdk
-mkdir -p jdk-10.jdk/Contents/Home/jre/ || fail
-ln -s ${JDK}/Contents/MacOS jdk-10.jdk/Contents || fail
-ln -s ${JDK}/Contents/Home/bin jdk-10.jdk/Contents/Home/jre/ || fail
-ln -s ${JDK}/Contents/Home/conf jdk-10.jdk/Contents/Home/jre/ || fail
-ln -s ${JDK}/Contents/Home/jmods jdk-10.jdk/Contents/Home/jre/ || fail
-ln -s ${JDK}/Contents/Home/lib jdk-10.jdk/Contents/Home/jre/ || fail
-cp ${JDK}/Info.plist jdk-10.jdk/Contents/ || fail
+rm -vrf ${JDK}
+mkdir -p ${JDK}/Contents/Home/jre/ || fail
+ln -s ${JDK_PATH}/MacOS ${JDK}/Contents || fail
+ln -s ${JDK_PATH}/Home/bin ${JDK}/Contents/Home/jre/ || fail
+ln -s ${JDK_PATH}/Home/conf ${JDK}/Contents/Home/jre/ || fail
+ln -s ${JDK_PATH}/Home/jmods ${JDK}/Contents/Home/jre/ || fail
+ln -s ${JDK_PATH}/Home/lib ${JDK}/Contents/Home/jre/ || fail
+cp -Hva ${JDK_PATH}/Info.plist ${JDK}/Contents/ || fail
 
 rm -rf "OpenICP-BR.app" || fail
-jar2app "$(basename "${JAR}")" -n "OpenICP-BR" -i ../other_res/osx/logo.icns -s "${VERSION}" -v "${VERSION}" -r jdk-10.jdk || fail
+cp "$(basename "${JAR}")" "ktApp.jar"
+jar2app "ktApp.jar" -n "OpenICP-BR" -i ../other_res/osx/logo.icns -s "${VERSION}" -v "${VERSION}" -r ${JDK} || fail
 echo -e "${GREEN}Generated .app bundle ${NC}"
 
 mkdir OpenICP-BR.app/Contents/Java/lib || fail

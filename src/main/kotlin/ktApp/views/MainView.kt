@@ -5,6 +5,7 @@ import com.github.OpenICP_BR.ktLib.Certificate
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
 import javafx.event.ActionEvent
 import javafx.scene.control.Alert
+import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import javafx.scene.image.Image
 import javafx.scene.layout.Region
@@ -25,6 +26,7 @@ class MainView : View() {
     val advView : AdvView = AdvView()
     val tainted_warn : VBox by fxid("TaintedWarning")
     val mainMenu : MenuBar by fxid("MainMenu")
+    val helpMenu : Menu by fxid("HelpMenu")
 
     init {
         language = FX.locale.toString()
@@ -54,7 +56,7 @@ class MainView : View() {
         // Set app name
         this.title = "OpenICP-BR"
 
-        // Fix macOS menu
+        // Fix macOS menu bar
         val os = System.getProperty("os.name");
         if (os != null && os.startsWith("Mac")) {
             mainMenu.useSystemMenuBarProperty().set(true)
