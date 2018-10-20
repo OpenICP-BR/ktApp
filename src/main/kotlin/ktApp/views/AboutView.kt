@@ -1,5 +1,6 @@
 package main.kotlin.ktApp.views
 
+import com.github.OpenICP_BR.ktApp.ViewWithStage
 import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
@@ -8,12 +9,14 @@ import java.util.*
 import javafx.stage.Stage
 import javafx.scene.Scene
 import javafx.stage.Modality
+import tornadofx.FX
 import tornadofx.get
 import java.awt.Desktop
 import java.net.URI
 
 
-class AboutView() : View() {
+class AboutView() : ViewWithStage() {
+    override var myStage: Stage? = null
     override val root : GridPane by fxml("/about.fxml")
 
     val kt_app_ver : Label by fxid("AboutKtAppVerLbl")
@@ -24,9 +27,10 @@ class AboutView() : View() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
-        currentStage?.isResizable = false
-        currentStage?.titleProperty()?.unbind()
-        currentStage?.title = messages["T.About"]
+        println(myStage)
+        myStage?.isResizable = false
+        myStage?.titleProperty()?.unbind()
+        myStage?.title = messages["T.About"]
 
         val properties = Properties()
         properties.load(AboutView::class.java.getResourceAsStream("/info.properties"));
@@ -38,7 +42,7 @@ class AboutView() : View() {
 
     fun openWebsite() {
         try {
-            Desktop.getDesktop().browse(URI("https://openicp-br.github.io"));
+            Desktop.getDesktop().browse(URI("https://openicp-br.github.io/" + FX.locale.language));
         } catch (e: Exception) {
         }
     }

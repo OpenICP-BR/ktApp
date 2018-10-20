@@ -26,12 +26,21 @@ fun main(args: Array<String>) {
     Application.launch(MyApp::class.java, *args)
 }
 
+fun openOnNewWindow(view: ViewWithStage, stage: Stage) {
+    view.myStage = stage
+    openOnNewWindow(view as View, stage)
+}
+
 fun openOnNewWindow(view: View, stage: Stage) {
     view.onBeforeShow()
-
     val scene = Scene(view.root)
     stage.scene = scene
     stage.show()
+}
+
+fun openOnNewWindow(view: ViewWithStage) {
+    val stage = Stage()
+    openOnNewWindow(view, stage)
 }
 
 fun openOnNewWindow(view: View) {
