@@ -7,12 +7,24 @@ import javafx.application.Application
 import javafx.scene.Scene
 import javafx.stage.Stage
 import tornadofx.App
+import tornadofx.FX
 import tornadofx.View
 import java.awt.SplashScreen
+import java.util.*
 
 val Store = CAStore()
 
 class MyApp: App(MainView::class) {
+    init {
+        // Ensure we always use English or Portuguese
+        try {
+            if (FX.locale.language != "pt") {
+                FX.locale = Locale("en", "US")
+                Locale.setDefault(FX.locale)
+            }
+        } catch (e: Exception) {}
+    }
+
     override fun start(stage: Stage) {
         super.start(stage)
         openOnNewWindow(MainView(), stage)
