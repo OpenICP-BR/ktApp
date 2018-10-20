@@ -13,7 +13,7 @@ BRANCH=`git rev-parse --abbrev-ref HEAD`
 BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
-    echo -e "${RED}You MUST set the environment variable: ${BINTRAY_PASSWORD}${NC}"
+    echo -e "${RED}You MUST set the environment variable: BINTRAY_PASSWORD${NC}"
     exit -1
 fi
 if [ ! -f "${JAR}" ]; then
@@ -46,7 +46,7 @@ LIBS=`find lib -type f -iname "*.jar"`
 ZIP=OpenICP-BR-unstable-${VERSION}.zip
 rm $ZIP
 cp $(basename ${JAR}) ktApp.jar
-zip ${ZIP} ${JAR} $LIBS
+zip ${ZIP} ktApp.jar ${LIBS}
 echo -e "${GREEN}Generated zip file: ${BLUE}target/${ZIP}${NC}"
 
 # Upload file
