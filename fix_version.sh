@@ -21,7 +21,11 @@ else
     VERSION=${COUNT}.${BRANCH}.${DATE}.${COMMIT}
 fi
 
-echo -e "${GREEN}Setting version to: ${BLUE}${VERSION}${NC}"
-
-xmlstarlet ed -N x="http://maven.apache.org/POM/4.0.0" -u "//x:project/x:version" -v "${VERSION}" pom.xml > pom2.xml
-mv pom2.xml pom.xml
+# Only change if necessary (it avoids problems with GNU Make)
+if [ `./get_version.sh` != "${VERSION}" ]; then
+    echo -e "${GREEN}Setting version to: ${BLUE}${VERSION}${NC}"
+    xmlstarlet ed -N x="http://maven.apache.org/POM/4.0.0" -u "//x:project/x:version" -v "${VERSION}" pom.xml > pom2.xml
+    mv pom2.xml pom.xml
+else
+    echo -e "${GREEN}Version already was: ${BLUE}${VERSION}${NC}"
+fi
