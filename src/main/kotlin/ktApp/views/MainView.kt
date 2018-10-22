@@ -97,8 +97,9 @@ class MainView : ViewWithStage() {
         fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(
                 this.messages["T.CertificateFile"],
                 "*.crt", "*.pem", "*.cert"))
-        var file = fileChooser.showOpenDialog(root.scene.window)
+        val file = fileChooser.showOpenDialog(root.scene.window)
         if (file == null) {
+            println("no file selected")
             return
         }
         val cert = Certificate(file.absolutePath)

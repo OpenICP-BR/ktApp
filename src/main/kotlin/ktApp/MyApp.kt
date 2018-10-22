@@ -40,6 +40,11 @@ fun main(args: Array<String>) {
 
 fun openOnNewWindow(view: ViewWithStage, stage: Stage) {
     view.myStage = stage
+    if (view.root.scene == null) {
+        stage.scene = Scene(view.root)
+    } else {
+        stage.scene = view.root.scene
+    }
     openOnNewWindow(view as View, stage)
 }
 
