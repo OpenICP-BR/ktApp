@@ -45,8 +45,6 @@ fun openOnNewWindow(view: ViewWithStage, stage: Stage) {
 
 fun openOnNewWindow(view: View, stage: Stage) {
     view.onBeforeShow()
-    val scene = Scene(view.root)
-    stage.scene = scene
     stage.show()
 }
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="AdvTab" hgap="4.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="4.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="AdvPanelName" GridPane.columnIndex="1" />
+      <Label contentDisplay="RIGHT" text="%T.Name" GridPane.halignment="RIGHT">
+         <opaqueInsets>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </opaqueInsets>
+      </Label>
+      <Label contentDisplay="RIGHT" text="%T.Type" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         <opaqueInsets>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </opaqueInsets>
+      </Label>
+      <Label contentDisplay="RIGHT" text="%T.Issuer-PFX" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <opaqueInsets>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </opaqueInsets>
+      </Label>
+      <ComboBox fx:id="AdvPanelType" maxWidth="1.7976931348623157E308" onAction="#onType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+            <TextField fx:id="AdvPanelIssuerPFX" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="AdvPanelIssuerPFXBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSelectIssuer" text="%T.Pick">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label text="%T.Password" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <PasswordField fx:id="AdvPanelPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="%T.Validity" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+      <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <children>
+            <DatePicker fx:id="AdvPanelNotBefore" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" HBox.hgrow="ALWAYS" />
+            <Label alignment="BASELINE_CENTER" maxHeight="1.7976931348623157E308" minWidth="-Infinity" text="%T.date_until_date" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets left="8.0" right="8.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="AdvPanelNotAfter" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <Label text="%T.IssuerPassword" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+      <PasswordField fx:id="AdvPanelIssuerPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false" onAction="#onGenBtn" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+      <ProgressBar fx:id="AdvPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+      <Label fx:id="AdvPanelStatus" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" />
+   </columnConstraints>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+   <rowConstraints>
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="0.0" vgrow="ALWAYS" />
+   </rowConstraints>
+</GridPane>

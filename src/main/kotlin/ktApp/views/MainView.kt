@@ -1,6 +1,7 @@
 package com.github.OpenICP_BR.ktApp.views
 
 import com.github.OpenICP_BR.ktApp.Store
+import com.github.OpenICP_BR.ktApp.ViewWithStage
 import com.github.OpenICP_BR.ktApp.openOnNewWindow
 import com.github.OpenICP_BR.ktLib.Certificate
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
@@ -13,30 +14,28 @@ import javafx.scene.layout.Region
 import tornadofx.*
 import javafx.scene.layout.VBox
 import javafx.stage.FileChooser
+import javafx.stage.Stage
 import main.kotlin.ktApp.views.AboutView
-import main.kotlin.ktApp.views.AdvView
+import main.kotlin.ktApp.views.GenCertView
 import main.kotlin.ktApp.views.SignView
 import java.util.*
 
 
-class MainView : View() {
+class MainView : ViewWithStage() {
+    override var myStage: Stage? = null
     override val root : VBox by fxml("/main.fxml")
 
-    lateinit var language : String
+    var language : String = FX.locale.toString()
     val signView : SignView = SignView()
-    val advView : AdvView = AdvView()
     val tainted_warn : VBox by fxid("TaintedWarning")
     val mainMenu : MenuBar by fxid("MainMenu")
     val helpMenu : Menu by fxid("HelpMenu")
 
     init {
-        language = FX.locale.toString()
-
+        myStage = primaryStage
         // Enable communication between the views and allow FXML to work
         signView.fxmlLoader = this.fxmlLoader
         signView.master = this
-        advView.fxmlLoader = this.fxmlLoader
-        advView.master = this
     }
 
     override fun onBeforeShow() {
@@ -61,12 +60,11 @@ class MainView : View() {
         val os = System.getProperty("os.name");
         if (os != null && os.startsWith("Mac")) {
             println("Seting macOS menu")
-            mainMenu.useSystemMenuBarProperty().set(true)
+            mainMenu.isUseSystemMenuBar = true
         }
 
         // Show tabs
         signView.onBeforeShow()
-        advView.onBeforeShow()
     }
 
     fun switchLangToPT(evt : ActionEvent) {
@@ -103,7 +101,7 @@ class MainView : View() {
         if (file == null) {
             return
         }
-        val cert = Certificate(file.getAbsolutePath())
+        val cert = Certificate(file.absolutePath)
 
         // Try to add as a testing Root CA
         try {
@@ -126,7 +124,9 @@ class MainView : View() {
         }
     }
 
-    fun showGenTestingCert(evt : ActionEvent) {}
+    fun showGenTestingCert(evt : ActionEvent) {
+        openOnNewWindow(GenCertView())
+    }
 
     fun showAbout(evt : ActionEvent) {
         openOnNewWindow(AboutView())

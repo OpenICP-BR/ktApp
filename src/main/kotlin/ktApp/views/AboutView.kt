@@ -27,7 +27,6 @@ class AboutView() : ViewWithStage() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
-        println(myStage)
         myStage?.isResizable = false
         myStage?.titleProperty()?.unbind()
         myStage?.title = messages["T.About"]

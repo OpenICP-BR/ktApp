@@ -1,6 +1,7 @@
 package main.kotlin.ktApp.views
 
 import com.github.OpenICP_BR.ktApp.Store
+import com.github.OpenICP_BR.ktApp.ViewWithStage
 import com.github.OpenICP_BR.ktApp.views.MainView
 import com.github.OpenICP_BR.ktLib.Certificate
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
@@ -10,14 +11,15 @@ import javafx.scene.control.*
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Region
 import javafx.stage.FileChooser
+import javafx.stage.Stage
 import tornadofx.View
 import tornadofx.get
 import tornadofx.hide
 import java.time.LocalDate
 
-class AdvView() : View() {
-    override val root : GridPane by fxid("AdvTab")
-    lateinit var master : MainView
+class GenCertView() : ViewWithStage() {
+    override var myStage: Stage? = null
+    override val root : GridPane by fxml("/gen_cert.fxml")
 
     val type : ComboBox<String> by fxid("AdvPanelType")
     val bar : ProgressBar by fxid("AdvPanelProgressBar")
@@ -35,6 +37,10 @@ class AdvView() : View() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
+        // Fix stage
+        myStage?.titleProperty()?.unbind()
+        myStage?.title = messages["T.GenCert"]
+
         // Add certificate types
         type.items = FXCollections.observableArrayList(this.messages["Adv.Types"].split(";"))
 
@@ -45,9 +51,6 @@ class AdvView() : View() {
         // Set validity from today to a year after today
         not_before.value = LocalDate.now()
         not_after.value = not_before.value.plusYears(1)
-
-        // Bind events
-        gen_btn.setOnAction{ e -> onGenBtn(e) }
     }
 
     fun onType(event: ActionEvent) {
@@ -78,6 +81,18 @@ class AdvView() : View() {
         fileChooser.title = ""
         fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.PFXFile"], "*.pfx, *.p12"))
         var file = fileChooser.showSaveDialog(root.scene.window)
+        if (file == null) {
+            return
+        }
+        println(file)
+    }
+
+    fun onSelectIssuer(event: ActionEvent) {
+        // Select output file
+        val fileChooser = FileChooser()
+        fileChooser.title = ""
+        fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.PFXFile"], "*.pfx, *.p12"))
+        var file = fileChooser.showOpenDialog(root.scene.window)
         if (file == null) {
             return
         }

@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 
 JAR=target/ktApp-${VERSION}.jar
 BRANCH=`git rev-parse --abbrev-ref HEAD`
-BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
+BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/all
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
     echo -e "${RED}You MUST set the environment variable: BINTRAY_PASSWORD${NC}"
