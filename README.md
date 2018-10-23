@@ -54,3 +54,6 @@ Run: `echo "deb https://dl.bintray.com/gjvnq/deb /" | sudo tee -a /etc/apt/sourc
 Or add the following to `/etc/apt/sources.list`:
 
     deb https://dl.bintray.com/gjvnq/deb /
+    
+Update cache: `sudo apt-get update`
+And install: `sudo apt-get install openicp-br`
