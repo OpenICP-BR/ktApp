@@ -1,5 +1,6 @@
 package com.github.OpenICP_BR.ktApp.views
 
+import com.github.OpenICP_BR.ktApp.MyApp
 import com.github.OpenICP_BR.ktApp.Store
 import com.github.OpenICP_BR.ktApp.ViewWithStage
 import com.github.OpenICP_BR.ktApp.openOnNewWindow
@@ -19,17 +20,17 @@ import main.kotlin.ktApp.views.AboutView
 import main.kotlin.ktApp.views.GenCertView
 import main.kotlin.ktApp.views.SignView
 import java.util.*
+import de.codecentric.centerdevice.MenuToolkit
+import javafx.scene.Scene
 
 
 class MainView : ViewWithStage() {
     override var myStage: Stage? = null
     override val root : VBox by fxml("/main.fxml")
 
-    var language : String = FX.locale.toString()
     val signView : SignView = SignView()
     val tainted_warn : VBox by fxid("TaintedWarning")
-    val mainMenu : MenuBar by fxid("MainMenu")
-    val helpMenu : Menu by fxid("HelpMenu")
+    val menuBar : MenuBar by fxid("MainMenu")
 
     init {
         myStage = primaryStage
@@ -57,10 +58,29 @@ class MainView : ViewWithStage() {
         this.title = "OpenICP-BR"
 
         // Fix macOS menu bar
+        MyApp.instance.hi()
+
+        menuBar.isUseSystemMenuBar = true
         val os = System.getProperty("os.name");
         if (os != null && os.startsWith("Mac")) {
             println("Seting macOS menu")
-            mainMenu.isUseSystemMenuBar = true
+            // Create about stage and view
+            val stage = Stage()
+            if (MyApp.aboutView == null) {
+                MyApp.aboutView = AboutView()
+            }
+            if (MyApp.aboutView!!.root.scene == null) {
+                stage.scene = Scene(MyApp.aboutView!!.root)
+            } else {
+                stage.scene = MyApp.aboutView!!.root.scene
+            }
+            MyApp.aboutView!!.onBeforeShow()
+            // Ensure OSX menubar
+            MyApp.aboutView!!.myStage = stage
+            val tk = MenuToolkit.toolkit()
+            MyApp.defaultApplicationMenu = tk.createDefaultApplicationMenu("OpenICP-BR", MyApp.aboutView!!.myStage)
+            menuBar.menus.add(0, MyApp.defaultApplicationMenu)
+            tk.setGlobalMenuBar(menuBar)
         }
 
         // Show tabs
@@ -76,18 +96,30 @@ class MainView : ViewWithStage() {
     }
 
     fun onSwitchLanguage(locale : Locale) {
+        println("Switching language to: "+locale.toString() + "(was: "+FX.locale.toString().toString()+")")
         // Do not change the language to the same one
-        if (language == locale.toString()) {
+        if (FX.locale.toString() == locale.toString()) {
+            println("No need to change language")
             return
         }
-        println("Switching language to: "+locale.toString())
 
+        // Close other windows
+        MyApp.aboutView?.myStage?.close()
+        MyApp.genCertView?.myStage?.close()
+        MyApp.aboutView = null
+        MyApp.genCertView = null
+
+        // Change locale
         FX.locale = locale
         FX.messages = ResourceBundle.getBundle("Messages", locale, FXResourceBundleControl)
         this.messages = FX.messages
-        val new_view = MainView()
-        new_view.onBeforeShow()
-        this.replaceWith(new_view)
+
+        // Open new main window
+        val newView = MainView()
+        newView.onBeforeShow()
+        newView.myStage = this.myStage
+        openOnNewWindow(MainView())
+        this.close()
     }
 
     fun showImportRootCA(evt : ActionEvent) {
@@ -126,10 +158,26 @@ class MainView : ViewWithStage() {
     }
 
     fun showGenTestingCert(evt : ActionEvent) {
-        openOnNewWindow(GenCertView())
+        if (MyApp.genCertView == null) {
+            MyApp.genCertView = GenCertView()
+        }
+        if (MyApp.genCertView!!.myStage == null) {
+            openOnNewWindow(MyApp.genCertView!!)
+        } else {
+            MyApp.genCertView!!.myStage!!.show()
+            MyApp.genCertView!!.myStage!!.requestFocus()
+        }
     }
 
     fun showAbout(evt : ActionEvent) {
-        openOnNewWindow(AboutView())
+        if (MyApp.aboutView == null) {
+            MyApp.aboutView = AboutView()
+        }
+        if (MyApp.aboutView!!.myStage == null) {
+            openOnNewWindow(MyApp.aboutView!!)
+        } else {
+            MyApp.aboutView!!.myStage!!.show()
+            MyApp.aboutView!!.myStage!!.requestFocus()
+        }
     }
 }

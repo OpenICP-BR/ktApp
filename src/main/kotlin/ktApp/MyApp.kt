@@ -5,7 +5,10 @@ import com.github.OpenICP_BR.ktLib.CAStore
 import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.application.Application
 import javafx.scene.Scene
+import javafx.scene.control.Menu
 import javafx.stage.Stage
+import main.kotlin.ktApp.views.AboutView
+import main.kotlin.ktApp.views.GenCertView
 import tornadofx.App
 import tornadofx.FX
 import tornadofx.View
@@ -15,7 +18,15 @@ import java.util.*
 val Store = CAStore()
 
 class MyApp: App(MainView::class) {
+    companion object {
+        lateinit var instance : MyApp
+        var aboutView : AboutView? = null
+        var genCertView : GenCertView? = null
+        var defaultApplicationMenu: Menu? = null
+    }
+
     init {
+        instance = this
         // Ensure we always use English or Portuguese
         try {
             if (FX.locale.language != "pt") {
@@ -23,6 +34,10 @@ class MyApp: App(MainView::class) {
                 Locale.setDefault(FX.locale)
             }
         } catch (e: Exception) {}
+    }
+
+    fun hi() {
+        println("hi!!!!")
     }
 
     override fun start(stage: Stage) {
