@@ -33,7 +33,7 @@ JAR2APP_OPTS=--name "${NAME}" --icon ../other_res/osx/logo.icns --short-version 
 all: app dmg
 
 $(JAR): ../pom.xml $(SRCs)
-	cd .. && $(MVN) clean package
+	cd .. && $(MVN) package
 	$(ECHO) $(GREEN)$(BOLD)Got: $(RESET)$(BOLD)$(JAR)$(RESET)
 
 $(APP): $(JAR)
@@ -43,11 +43,11 @@ $(APP): $(JAR)
 	pwd
 	rm -vrf ${JRE}
 	mkdir -p ${JRE}/Contents/Home/jre/
-	ln -s ${JRE_PATH}/MacOS ${JRE}/Contents
-	ln -s ${JRE_PATH}/Home/bin ${JRE}/Contents/Home/jre/
-	ln -s ${JRE_PATH}/Home/conf ${JRE}/Contents/Home/jre/
-	ln -s ${JRE_PATH}/Home/jmods ${JRE}/Contents/Home/jre/
-	ln -s ${JRE_PATH}/Home/lib ${JRE}/Contents/Home/jre/
+	cp -rva ${JRE_PATH}/MacOS/ ${JRE}/Contents/
+	cp -rva ${JRE_PATH}/Home/bin ${JRE}/Contents/Home/jre/
+	cp -rva ${JRE_PATH}/Home/conf ${JRE}/Contents/Home/jre/
+	cp -rva ${JRE_PATH}/Home/jmods ${JRE}/Contents/Home/jre/
+	cp -rva ${JRE_PATH}/Home/lib ${JRE}/Contents/Home/jre/
 	cp -Hva ${JRE_PATH}/Info.plist ${JRE}/Contents/
 	$(ECHO) $(GREEN)$(BOLD)Prepared JRE on: $(RESET)$(BOLD)$(JRE_PATH)$(RESET)
 
