@@ -17,7 +17,7 @@ else
     BRANCH=`./get_branch.sh`
     COMMIT=`git rev-parse --short HEAD`
     DATE=`git log -1 --date=short --pretty=format:%cd | tr '-' '.'`
-    VERSION=${BRANCH}.${DATE}.${COMMIT}
+    VERSION=0.${BRANCH}.${DATE}.${COMMIT}
 fi
 
 # Only change if necessary (it avoids problems with GNU Make)
