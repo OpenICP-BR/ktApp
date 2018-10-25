@@ -51,3 +51,5 @@ echo -e "${GREEN}Generated zip file: ${BLUE}target/${ZIP}${NC}"
 
 # Upload file
 upload $ZIP
+BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
+upload $ZIP
