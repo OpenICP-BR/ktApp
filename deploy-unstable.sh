@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 
 JAR=target/ktApp-${VERSION}.jar
 BRANCH=`./get_branch.sh`
-BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/all
+BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
     echo -e "${RED}You MUST set the environment variable: BINTRAY_PASSWORD${NC}"
@@ -50,6 +50,4 @@ zip ${ZIP} ktApp.jar ${LIBS}
 echo -e "${GREEN}Generated zip file: ${BLUE}target/${ZIP}${NC}"
 
 # Upload file
-upload $ZIP
-BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/${BRANCH}
 upload $ZIP

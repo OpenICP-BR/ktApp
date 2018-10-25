@@ -15,10 +15,9 @@ if [ "$TAGS" != "0" ]; then
     VERSION=`git tag -l --points-at HEAD | head -n 1`
 else
     BRANCH=`./get_branch.sh`
-    COUNT=`git rev-list --count HEAD`
     COMMIT=`git rev-parse --short HEAD`
-    DATE=`git log -1 --date=short --pretty=format:%cd`
-    VERSION=${COUNT}.${BRANCH}.${DATE}.${COMMIT}
+    DATE=`git log -1 --date=short --pretty=format:%cd | tr '-' '.'`
+    VERSION=${BRANCH}.${DATE}.${COMMIT}
 fi
 
 # Only change if necessary (it avoids problems with GNU Make)
