@@ -2,13 +2,11 @@ package com.github.OpenICP_BR.ktApp.views
 
 import com.github.OpenICP_BR.ktApp.MyApp
 import com.github.OpenICP_BR.ktApp.Store
-import com.github.OpenICP_BR.ktApp.ViewWithStage
 import com.github.OpenICP_BR.ktApp.openOnNewWindow
 import com.github.OpenICP_BR.ktLib.Certificate
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
 import javafx.event.ActionEvent
 import javafx.scene.control.Alert
-import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import javafx.scene.image.Image
 import javafx.scene.layout.Region
@@ -16,9 +14,6 @@ import tornadofx.*
 import javafx.scene.layout.VBox
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import main.kotlin.ktApp.views.AboutView
-import main.kotlin.ktApp.views.GenCertView
-import main.kotlin.ktApp.views.SignView
 import java.util.*
 import de.codecentric.centerdevice.MenuToolkit
 import javafx.scene.Scene
@@ -58,8 +53,6 @@ class MainView : ViewWithStage() {
         this.title = "OpenICP-BR"
 
         // Fix macOS menu bar
-        MyApp.instance.hi()
-
         menuBar.isUseSystemMenuBar = true
         val os = System.getProperty("os.name");
         if (os != null && os.startsWith("Mac")) {
@@ -69,6 +62,7 @@ class MainView : ViewWithStage() {
             if (MyApp.aboutView == null) {
                 MyApp.aboutView = AboutView()
             }
+            MyApp.aboutView!!.myStage = stage
             if (MyApp.aboutView!!.root.scene == null) {
                 stage.scene = Scene(MyApp.aboutView!!.root)
             } else {
@@ -173,6 +167,7 @@ class MainView : ViewWithStage() {
         if (MyApp.aboutView == null) {
             MyApp.aboutView = AboutView()
         }
+        println(MyApp.aboutView!!.myStage)
         if (MyApp.aboutView!!.myStage == null) {
             openOnNewWindow(MyApp.aboutView!!)
         } else {

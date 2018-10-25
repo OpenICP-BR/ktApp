@@ -7,12 +7,12 @@ import javafx.application.Application
 import javafx.scene.Scene
 import javafx.scene.control.Menu
 import javafx.stage.Stage
-import main.kotlin.ktApp.views.AboutView
-import main.kotlin.ktApp.views.GenCertView
+import com.github.OpenICP_BR.ktApp.views.ViewWithStage
+import com.github.OpenICP_BR.ktApp.views.AboutView
+import com.github.OpenICP_BR.ktApp.views.GenCertView
 import tornadofx.App
 import tornadofx.FX
 import tornadofx.View
-import java.awt.SplashScreen
 import java.util.*
 
 val Store = CAStore()
@@ -34,10 +34,6 @@ class MyApp: App(MainView::class) {
                 Locale.setDefault(FX.locale)
             }
         } catch (e: Exception) {}
-    }
-
-    fun hi() {
-        println("hi!!!!")
     }
 
     override fun start(stage: Stage) {

@@ -16,7 +16,7 @@ fail () {
 }
 
 if [ ! -f "${JAR}" ]; then
-    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\nPlease run: mvn clean package${NC}"
+    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.${NC}\nPlease run: mvn clean package${NC}"
     exit -1
 fi
 

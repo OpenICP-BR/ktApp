@@ -1,5 +1,4 @@
-package com.github.OpenICP_BR.ktApp
-
+package com.github.OpenICP_BR.ktApp.views
 import javafx.beans.Observable
 import javafx.scene.Scene
 import javafx.stage.Stage

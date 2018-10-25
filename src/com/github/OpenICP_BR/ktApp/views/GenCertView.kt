@@ -1,18 +1,13 @@
-package main.kotlin.ktApp.views
+package com.github.OpenICP_BR.ktApp.views
 
-import com.github.OpenICP_BR.ktApp.Store
-import com.github.OpenICP_BR.ktApp.ViewWithStage
-import com.github.OpenICP_BR.ktApp.views.MainView
-import com.github.OpenICP_BR.ktLib.Certificate
+import com.github.OpenICP_BR.ktApp.views.ViewWithStage
 import com.github.OpenICP_BR.ktLib.TESTING_ROOT_CA_SUBJECT
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.scene.control.*
 import javafx.scene.layout.GridPane
-import javafx.scene.layout.Region
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import tornadofx.View
 import tornadofx.get
 import tornadofx.hide
 import java.time.LocalDate

@@ -1,4 +1,4 @@
-package main.kotlin.ktApp.views
+package com.github.OpenICP_BR.ktApp.views
 
 import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.collections.FXCollections

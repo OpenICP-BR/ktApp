@@ -17,7 +17,7 @@ if [ "${BINTRAY_PASSWORD}" == "" ]; then
     exit -1
 fi
 if [ ! -f "${JAR}" ]; then
-    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\nPlease run: mvn clean package${NC}"
+    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\n${NC}Please run: mvn clean package and ./bundle_deb.sh${NC}"
     exit -1
 fi
 

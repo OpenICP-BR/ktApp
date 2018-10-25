@@ -1,16 +1,11 @@
-package main.kotlin.ktApp.views
+package com.github.OpenICP_BR.ktApp.views
 
-import com.github.OpenICP_BR.ktApp.MyApp
-import com.github.OpenICP_BR.ktApp.ViewWithStage
-import de.codecentric.centerdevice.MenuToolkit
-import javafx.fxml.FXMLLoader
+import com.github.OpenICP_BR.ktApp.views.ViewWithStage
+import com.github.OpenICP_BR.ktLib.ICPVersion
 import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
-import tornadofx.View
 import java.util.*
 import javafx.stage.Stage
-import javafx.scene.Scene
-import javafx.stage.Modality
 import tornadofx.FX
 import tornadofx.get
 import java.awt.Desktop
@@ -29,13 +24,14 @@ class AboutView() : ViewWithStage() {
     override fun onBeforeShow() {
         super.onBeforeShow()
 
-        myStage?.isResizable = false
-        myStage?.titleProperty()?.unbind()
-        myStage?.title = messages["T.About"]
+        myStage!!.isResizable = false
+        myStage!!.titleProperty()?.unbind()
+        myStage!!.title = messages["T.About"]
 
         val properties = Properties()
         properties.load(AboutView::class.java.getResourceAsStream("/info.properties"));
 
+        kt_lib_ver.text = ICPVersion
         kt_app_ver.text = properties.getProperty("version")
         java_ver.text = System.getProperty("java.version")
         os_ver.text = System.getProperty("os.name") + " - " + System.getProperty("os.version")
