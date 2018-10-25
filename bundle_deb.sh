@@ -7,6 +7,7 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+./fix_version.sh
 VERSION=`./get_version.sh`
 JAR=target/ktApp-${VERSION}.jar
 
@@ -40,9 +41,9 @@ chmod +x target/deb/usr/bin/openicpbr || fail
 cp -v target/ktApp.jar target/deb/usr/share/openicp-br/ || fail
 cp -v target/lib/*.jar target/deb/usr/share/openicp-br/lib/ || fail
 cp -v other_res/linux/com.github.OpenICP_BR.ktApp.desktop  target/deb/usr/share/applications || fail
-cp -v src/main/resources/logo.svg target/deb/usr/share/icons/hicolor/scalable/apps/com.github.OpenICP_BR.ktApp.svg || fail
+cp -v res/logo.svg target/deb/usr/share/icons/hicolor/scalable/apps/com.github.OpenICP_BR.ktApp.svg || fail
 for RES in 16x16 32x32 48x48 64x64 128x128 256x256; do
-    cp -v src/main/resources/logo-${RES}.png target/deb/usr/share/icons/hicolor/${RES}/apps/com.github.OpenICP_BR.ktApp.png || fail
+    cp -v res/logo-${RES}.png target/deb/usr/share/icons/hicolor/${RES}/apps/com.github.OpenICP_BR.ktApp.png || fail
 done
 echo -e "${GREEN}Copied files ${NC}"
 
