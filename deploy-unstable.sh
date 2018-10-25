@@ -9,7 +9,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 JAR=target/ktApp-${VERSION}.jar
-BRANCH=`git rev-parse --abbrev-ref HEAD`
+BRANCH=`./get_branch.sh`
 BINTRY_URL=https://api.bintray.com/content/gjvnq/misc/OpenICP-BR.unstable/all
 
 if [ "${BINTRAY_PASSWORD}" == "" ]; then
@@ -17,7 +17,7 @@ if [ "${BINTRAY_PASSWORD}" == "" ]; then
     exit -1
 fi
 if [ ! -f "${JAR}" ]; then
-    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\n${NC}Please run: mvn clean package and ./bundle_deb.sh${NC}"
+    echo -e "${RED}File ${BLUE}${JAR}${RED} does not exist.\n${NC}Please run: mvn clean package${NC}"
     exit -1
 fi
 

@@ -14,7 +14,7 @@ TAGS=`git tag -l --points-at HEAD | wc -l`
 if [ "$TAGS" != "0" ]; then
     VERSION=`git tag -l --points-at HEAD | head -n 1`
 else
-    BRANCH=`git rev-parse --abbrev-ref HEAD`
+    BRANCH=`./get_branch.sh`
     COUNT=`git rev-list --count HEAD`
     COMMIT=`git rev-parse --short HEAD`
     DATE=`git log -1 --date=short --pretty=format:%cd`
