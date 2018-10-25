@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#pleaseDrag" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #00aac4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="OpenICP-BR" textAlignment="CENTER">
+               <font>
+                  <Font name="Arvo Bold" size="64.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+               </VBox.margin>
+            </Text>
+            <ProgressIndicator style="-fx-progress-color: white;">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ProgressIndicator>
+            <Text fx:id="SplashStatusMsg" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum Dolor Est">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="32.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+         </padding>
+      </VBox>
+      <FontAwesomeIcon fill="WHITE" iconName="TIMES" layoutX="8.0" layoutY="-22.0" onMouseClicked="#pleaseClose" onTouchPressed="#pleaseClose" size="1.5em" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+   </children>
+</AnchorPane>

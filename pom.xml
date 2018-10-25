@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.OpenICP_BR</groupId>
   <artifactId>ktApp</artifactId>
-  <version>71.master.2018-10-23.b5f7db2</version>
+  <version>1540436153</version>
   <name>ktApp</name>
   <packaging>jar</packaging>
   <properties>
@@ -34,6 +34,11 @@
       <groupId>de.codecentric.centerdevice</groupId>
       <artifactId>centerdevice-nsmenufx</artifactId>
       <version>2.1.6</version>
+    </dependency>
+    <dependency>
+      <groupId>de.jensd</groupId>
+      <artifactId>fontawesomefx</artifactId>
+      <version>8.1</version>
     </dependency>
   </dependencies>
   <build>

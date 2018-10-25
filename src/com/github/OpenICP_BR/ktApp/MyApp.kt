@@ -1,25 +1,23 @@
 package com.github.OpenICP_BR.ktApp
 
+import com.github.OpenICP_BR.ktApp.views.*
 import com.github.OpenICP_BR.ktLib.CAStore
 
-import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.application.Application
 import javafx.scene.Scene
 import javafx.scene.control.Menu
 import javafx.stage.Stage
-import com.github.OpenICP_BR.ktApp.views.ViewWithStage
-import com.github.OpenICP_BR.ktApp.views.AboutView
-import com.github.OpenICP_BR.ktApp.views.GenCertView
-import tornadofx.App
-import tornadofx.FX
-import tornadofx.View
+import javafx.stage.StageStyle
+import tornadofx.*
 import java.util.*
 
 val Store = CAStore()
 
-class MyApp: App(MainView::class) {
+class MyApp: App(SplashView::class) {
     companion object {
         lateinit var instance : MyApp
+        var splashView = SplashView()
+        var mainView: MainView? = null
         var aboutView : AboutView? = null
         var genCertView : GenCertView? = null
         var defaultApplicationMenu: Menu? = null
@@ -37,8 +35,29 @@ class MyApp: App(MainView::class) {
     }
 
     override fun start(stage: Stage) {
+        // Show splash screen
+        stage.initStyle(StageStyle.UNDECORATED)
         super.start(stage)
-        openOnNewWindow(MainView(), stage)
+        openOnNewWindow(splashView, stage)
+        println("shown spalsh screen")
+
+        // Prepare stuff
+        runAsync {
+            println("waiting")
+            splashView.status = "Just waiting"
+            Thread.sleep(1000)
+            splashView.status = "More waiting"
+            Thread.sleep(1000)
+            splashView.status = "Finished waiting"
+
+            // Create mainView
+            mainView = MainView()
+        } ui {
+            // Show it
+            splashView.close()
+            openOnNewWindow(mainView!!)
+        }
+
     }
 }
 
