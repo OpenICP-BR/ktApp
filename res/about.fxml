@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="AboutTab" hgap="4.0" vgap="4.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="AboutTab" hgap="4.0" vgap="4.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="%About.ktAppVer" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label fx:id="AboutKtAppVerLbl" text="Label" GridPane.rowIndex="2">
+      <Label text="%About.ktAppVer" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+      <Label fx:id="AboutKtAppVerLbl" text="appVer" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="4.0" />
          </GridPane.margin>
       </Label>
-      <Label text="%About.ktLibVer" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label text="%About.javaVer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Label fx:id="AboutKtLibVerLbl" text="Label" GridPane.rowIndex="3">
+      <Label text="%About.ktLibVer" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+      <Label text="%About.javaVer" GridPane.columnSpan="2147483647" GridPane.rowIndex="8" />
+      <Label fx:id="AboutKtLibVerLbl" text="libVer" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets left="4.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="AboutJavaVerLbl" text="Label" GridPane.rowIndex="4">
+      <Label fx:id="AboutJavaVerLbl" text="javaVer" GridPane.columnIndex="1" GridPane.rowIndex="9">
          <GridPane.margin>
             <Insets left="4.0" />
          </GridPane.margin>
       </Label>
       <Hyperlink focusTraversable="false" onAction="#openWebsite" text="openicp-br.github.io" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label text="%About.osVer" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Label fx:id="AboutOSLbl" text="Label" GridPane.rowIndex="5">
+      <Label text="%About.osVer" GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
+      <Label fx:id="AboutOSLbl" text="osVer" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <GridPane.margin>
             <Insets left="4.0" />
          </GridPane.margin>
@@ -41,9 +44,11 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </GridPane.margin>
       </ImageView>
+      <Label fx:id="AboutJavaPathLbl" text="javaHome" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+      <Label text="%About.javaPath" GridPane.columnSpan="2147483647" GridPane.rowIndex="10" />
    </children>
    <columnConstraints>
-      <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="-Infinity" />
+      <ColumnConstraints hgrow="NEVER" minWidth="16.0" />
       <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="-Infinity" />
    </columnConstraints>
    <opaqueInsets>
@@ -53,6 +58,12 @@
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </padding>
    <rowConstraints>
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+      <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
       <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
       <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
       <RowConstraints minHeight="-Infinity" vgrow="NEVER" />

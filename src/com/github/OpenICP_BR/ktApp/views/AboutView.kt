@@ -16,10 +16,11 @@ class AboutView() : ViewWithStage() {
     override var myStage: Stage? = null
     override val root : GridPane by fxml("/about.fxml")
 
-    val kt_app_ver : Label by fxid("AboutKtAppVerLbl")
-    val kt_lib_ver : Label by fxid("AboutKtLibVerLbl")
-    val java_ver : Label by fxid("AboutJavaVerLbl")
-    val os_ver : Label by fxid("AboutOSLbl")
+    val ktAppVer : Label by fxid("AboutKtAppVerLbl")
+    val ktLibVer : Label by fxid("AboutKtLibVerLbl")
+    val javaVer : Label by fxid("AboutJavaVerLbl")
+    val osVer : Label by fxid("AboutOSLbl")
+    val javaPath : Label by fxid("AboutJavaPathLbl")
 
     override fun onBeforeShow() {
         super.onBeforeShow()
@@ -31,10 +32,11 @@ class AboutView() : ViewWithStage() {
         val properties = Properties()
         properties.load(AboutView::class.java.getResourceAsStream("/info.properties"));
 
-        kt_lib_ver.text = ICPVersion
-        kt_app_ver.text = properties.getProperty("version")
-        java_ver.text = System.getProperty("java.version")
-        os_ver.text = System.getProperty("os.name") + " - " + System.getProperty("os.version")
+        ktLibVer.text = ICPVersion
+        ktAppVer.text = properties.getProperty("version")
+        javaVer.text = System.getProperty("java.version") + " (" + System.getProperty("java.vendor") + ")"
+        osVer.text = System.getProperty("os.name") + " - " + System.getProperty("os.arch") + " - " + System.getProperty("os.version")
+        javaPath.text = System.getProperty("java.home")
     }
 
     fun openWebsite() {

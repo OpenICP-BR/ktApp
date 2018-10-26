@@ -39,15 +39,16 @@ class MyApp: App(SplashView::class) {
         stage.initStyle(StageStyle.UNDECORATED)
         super.start(stage)
         openOnNewWindow(splashView, stage)
+        splashView.myStage?.toFront()
         println("shown spalsh screen")
 
         // Prepare stuff
         runAsync {
             println("waiting")
             splashView.status = "Just waiting"
-            Thread.sleep(1000)
+            Thread.sleep(3000)
             splashView.status = "More waiting"
-            Thread.sleep(1000)
+            Thread.sleep(3000)
             splashView.status = "Finished waiting"
 
             // Create mainView
@@ -65,6 +66,13 @@ class MyApp: App(SplashView::class) {
  * The main method is needed to support the mvn jfx:run goal.
  */
 fun main(args: Array<String>) {
+    println("args: "+args.toString())
+    println("java.home    "+System.getProperty("java.home"))
+    println("java.version "+System.getProperty("java.version"))
+    println("java.vendor  "+System.getProperty("java.vendor"))
+    println("os.name      "+System.getProperty("os.name"))
+    println("os.arch      "+System.getProperty("os.arch"))
+    println("os.version   "+System.getProperty("os.version"))
     Application.launch(MyApp::class.java, *args)
 }
 
