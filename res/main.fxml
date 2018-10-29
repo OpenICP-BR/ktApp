@@ -227,7 +227,7 @@
             </Tab>
             <Tab text="%T.Certificates">
                <content>
-                  <SplitPane fx:id="CertsTab" dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                  <SplitPane fx:id="CertsTab" dividerPositions="0.3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <items>
                         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="4.0">
                            <children>
