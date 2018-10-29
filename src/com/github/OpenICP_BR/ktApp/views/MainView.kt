@@ -24,6 +24,7 @@ class MainView : ViewWithStage() {
     override val root : VBox by fxml("/main.fxml")
 
     val signView : SignView = SignView()
+    val certsView : CertsView = CertsView()
     val tainted_warn : VBox by fxid("TaintedWarning")
     val menuBar : MenuBar by fxid("MainMenu")
 
@@ -32,6 +33,8 @@ class MainView : ViewWithStage() {
         // Enable communication between the views and allow FXML to work
         signView.fxmlLoader = this.fxmlLoader
         signView.master = this
+        certsView.fxmlLoader = this.fxmlLoader
+        certsView.master = this
     }
 
     override fun onBeforeShow() {
@@ -79,6 +82,7 @@ class MainView : ViewWithStage() {
 
         // Show tabs
         signView.onBeforeShow()
+        certsView.onBeforeShow()
     }
 
     fun switchLangToPT(evt : ActionEvent) {
