@@ -46,9 +46,9 @@ class MyApp: App(SplashView::class) {
         runAsync {
             println("waiting")
             splashView.status = "Just waiting"
-            Thread.sleep(3000)
-            splashView.status = "More waiting"
-            Thread.sleep(3000)
+//            Thread.sleep(3000)
+//            splashView.status = "More waiting"
+//            Thread.sleep(3000)
             splashView.status = "Finished waiting"
 
             // Create mainView
