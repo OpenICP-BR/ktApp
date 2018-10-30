@@ -3,10 +3,7 @@ package com.github.OpenICP_BR.ktApp.views
 import com.github.OpenICP_BR.ktApp.views.MainView
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
-import javafx.scene.control.Button
-import javafx.scene.control.ComboBox
-import javafx.scene.control.Label
-import javafx.scene.control.ProgressBar
+import javafx.scene.control.*
 import javafx.scene.layout.GridPane
 import javafx.stage.FileChooser
 import tornadofx.View
@@ -21,6 +18,7 @@ class SignView() : View() {
     val country : ComboBox<String> by fxid("SignPanelCountry")
     val pbar : ProgressBar by fxid("SignPanelProgressBar")
     val status : Label by fxid("SignPanelStatus")
+    val filesCtrl : TextInputControl by fxid("SignPanelFiles")
     val sel_btn : Button by fxid("SignPanelFilesBtn")
     val sign_btn : Button by fxid("SignPanelSignBtn")
 
@@ -45,10 +43,17 @@ class SignView() : View() {
         // Ask user to select the file
         val fileChooser = FileChooser()
         fileChooser.title = this.messages["Sign.SelectFile"]
-        var files = fileChooser.showOpenMultipleDialog(root.scene.window)
+        val files = fileChooser.showOpenMultipleDialog(root.scene.window)
         if (files == null) {
             return
         }
         println(files)
+        if (files.size == 0) {
+            filesCtrl.text = ""
+        } else if (files.size == 1) {
+            filesCtrl.text = files[0].name
+        } else {
+            filesCtrl.text = "%d %s".format(files.size, this.messages["T.files"])
+        }
     }
 }
