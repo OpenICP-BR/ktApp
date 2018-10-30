@@ -251,6 +251,7 @@
                            <rowConstraints>
                               <RowConstraints vgrow="NEVER" />
                               <RowConstraints vgrow="NEVER" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
@@ -258,11 +259,11 @@
                            </rowConstraints>
                            <children>
                               <Label text="%T.Subject" />
-                              <Label fx:id="lblCertSubject" text="Label" wrapText="true" GridPane.columnIndex="1" />
+                              <Label fx:id="lblCertSubject" text="Someone" wrapText="true" GridPane.columnIndex="1" />
                               <Label text="%T.Issuer" GridPane.rowIndex="1" />
-                              <Label fx:id="lblCertIssuer" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="%T.Validity" GridPane.rowIndex="2" />
-                              <Label text="%T.Location" GridPane.rowIndex="3" />
+                              <Label fx:id="lblCertIssuer" text="Someorg" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="%T.Validity" GridPane.rowIndex="3" />
+                              <Label text="%T.Location" GridPane.rowIndex="4" />
                               <Button fx:id="CertsPanelCopyIssuerBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Copy" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <graphic>
                                     <FontAwesomeIcon iconName="COPY" />
@@ -273,25 +274,32 @@
                                     <FontAwesomeIcon iconName="COPY" />
                                  </graphic>
                               </Button>
-                              <Label fx:id="lblCertValidity" text="dd/mm/yyyy until dd/mm/yyyy" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Button fx:id="CertsPanelCopyValidityBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Copy" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <Label fx:id="lblCertValidity" text="dd/mm/yyyy until dd/mm/yyyy" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="CertsPanelCopyValidityBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Copy" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                  <graphic>
                                     <FontAwesomeIcon iconName="COPY" />
                                  </graphic>
                               </Button>
-                              <Label fx:id="lblCertLocation" text="file on this computer" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Button fx:id="CertsPanelDelBtn" mnemonicParsing="false" text="%T.Remove" textFill="RED" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                              <Label fx:id="lblCertLocation" text="file on this computer" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="CertsPanelDelBtn" mnemonicParsing="false" text="%T.Remove" textFill="RED" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                                  <graphic>
                                     <FontAwesomeIcon fill="RED" iconName="TRASH" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="CertsPanelCopyBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.SaveCopy" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                              <Button fx:id="CertsPanelCopyBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.SaveCopy" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                  <graphic>
                                     <FontAwesomeIcon iconName="COPY" />
                                  </graphic>
                                  <tooltip>
                                     <Tooltip text="%Certs.CopiedCertFileMsg" />
                                  </tooltip>
+                              </Button>
+                              <Label text="%T.RootCA" GridPane.rowIndex="2" />
+                              <Label fx:id="lblCertRootCA" text="Some Root CA" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="CertsPanelCopyRootCABtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Copy" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <graphic>
+                                    <FontAwesomeIcon iconName="COPY" />
+                                 </graphic>
                               </Button>
                            </children>
                            <padding>

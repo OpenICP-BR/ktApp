@@ -21,20 +21,26 @@ class CertsView() : View() {
     val delBtn : Button by fxid("CertsPanelDelBtn")
     val copySubjectBtn : Button by fxid("CertsPanelCopySubjectBtn")
     val copyIssuerBtn : Button by fxid("CertsPanelCopyIssuerBtn")
+    val copyRootCABtn : Button by fxid("CertsPanelCopyRootCABtn")
     val copyValidityBtn : Button by fxid("CertsPanelCopyValidityBtn")
     val saveCopyBtn : Button by fxid("CertsPanelCopyBtn")
 
     val subjectLbl : Label by fxid("lblCertSubject")
     val issuerLbl : Label by fxid("lblCertIssuer")
+    val rootCALbl : Label by fxid("lblCertRootCA")
     val validityLbl : Label by fxid("lblCertValidity")
 
     override fun onBeforeShow() {
         super.onBeforeShow()
 
+        certsPanelList.items.add("hi")
+        certsPanelList.items.add("hi2")
+
         // Bind events
         addBtn.setOnAction { e -> onFileSelect(e) }
         copySubjectBtn.setOnAction { e -> copyToClipboard(subjectLbl.text) }
         copyIssuerBtn.setOnAction { e -> copyToClipboard(issuerLbl.text) }
+        copyRootCABtn.setOnAction { e -> copyToClipboard(rootCALbl.text) }
         copyValidityBtn.setOnAction { e -> copyToClipboard(validityLbl.text) }
     }
 
@@ -47,7 +53,7 @@ class CertsView() : View() {
         // Ask user to select the file
         val fileChooser = FileChooser()
         fileChooser.title = this.messages["Sign.SelectFile"]
-        var files = fileChooser.showOpenMultipleDialog(root.scene.window)
+        val files = fileChooser.showOpenMultipleDialog(root.scene.window)
         if (files == null) {
             return
         }
