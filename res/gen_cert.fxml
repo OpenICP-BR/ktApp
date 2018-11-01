@@ -32,7 +32,7 @@
                   <Insets right="4.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="AdvPanelIssuerPFXBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSelectIssuer" text="%T.Pick">
+            <Button fx:id="AdvPanelIssuerPFXBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%T.Pick">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -55,7 +55,7 @@
       </HBox>
       <Label text="%T.IssuerPassword" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
       <PasswordField fx:id="AdvPanelIssuerPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false" onAction="#onGenBtn" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+      <Button fx:id="AdvPanelGenBtn" mnemonicParsing="false" text="%T.GenerateAndSave" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
       <ProgressBar fx:id="AdvPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
       <Label fx:id="AdvPanelStatus" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
    </children>

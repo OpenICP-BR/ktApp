@@ -10,7 +10,12 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import tornadofx.get
 import tornadofx.hide
+import tornadofx.selectedItem
 import java.time.LocalDate
+
+enum class CertType {
+    ROOT, INTERMEDIATE, FINAL, TSA
+}
 
 class GenCertView() : ViewWithStage() {
     override var myStage: Stage? = null
@@ -21,13 +26,24 @@ class GenCertView() : ViewWithStage() {
     val status : Label by fxid("AdvPanelStatus")
     val name : TextField by fxid("AdvPanelName")
     val pass : TextField by fxid("AdvPanelPassword")
-    val issuer_pfx: TextField by fxid("AdvPanelIssuerPFX")
-    val issuer_btn: Button by fxid("AdvPanelIssuerPFXBtn")
-    val issuer_pass : TextField by fxid("AdvPanelIssuerPassword")
-    val not_before : DatePicker by fxid("AdvPanelNotBefore")
-    val not_after : DatePicker by fxid("AdvPanelNotAfter")
-    val gen_btn : Button by fxid("AdvPanelGenBtn")
-    var old_name: String? = ""
+    val issuerPfx: TextField by fxid("AdvPanelIssuerPFX")
+    val issuerBtn: Button by fxid("AdvPanelIssuerPFXBtn")
+    val issuerPass : TextField by fxid("AdvPanelIssuerPassword")
+    val notBefore : DatePicker by fxid("AdvPanelNotBefore")
+    val notAfter : DatePicker by fxid("AdvPanelNotAfter")
+    val genBtn : Button by fxid("AdvPanelGenBtn")
+    var oldName: String? = ""
+    val selectedType: CertType
+    get() {
+        when (type.selectionModel.selectedIndex) {
+            0 -> return CertType.ROOT
+            1 -> return CertType.INTERMEDIATE
+            2 -> return CertType.FINAL
+            3 -> return CertType.TSA
+            else -> throw Exception("unknown cert type: ${type.selectedItem} (${type.selectionModel.selectedIndex})")
+        }
+
+    }
 
     override fun onBeforeShow() {
         super.onBeforeShow()
@@ -44,50 +60,54 @@ class GenCertView() : ViewWithStage() {
         status.hide()
 
         // Set validity from today to a year after today
-        not_before.value = LocalDate.now()
-        not_after.value = not_before.value.plusYears(1)
+        notBefore.value = LocalDate.now()
+        notAfter.value = notBefore.value.plusYears(1)
+
+        // Bind events
+        genBtn.setOnAction { e -> generateCert() }
+        issuerBtn.setOnAction { e -> issuerFileOpener() }
     }
 
-    fun onType(event: ActionEvent) {
+    fun onType() {
         // Root CA
-        if (type.selectionModel.selectedIndex == 0) {
+        if (selectedType == CertType.ROOT) {
             name.isDisable = true
             if (name.text != TESTING_ROOT_CA_SUBJECT) {
-                old_name = name.text
+                oldName = name.text
             }
             name.text = TESTING_ROOT_CA_SUBJECT
-            issuer_pass.isDisable = true
-            issuer_pfx.isDisable = true
-            issuer_btn.isDisable = true
+            issuerPass.isDisable = true
+            issuerPfx.isDisable = true
+            issuerBtn.isDisable = true
         } else {
             name.isDisable = false
             if (name.text == TESTING_ROOT_CA_SUBJECT) {
-                name.text = old_name
+                name.text = oldName
             }
-            issuer_pass.isDisable = false
-            issuer_pfx.isDisable = false
-            issuer_btn.isDisable = false
+            issuerPass.isDisable = false
+            issuerPfx.isDisable = false
+            issuerBtn.isDisable = false
         }
     }
 
-    fun onGenBtn(event: ActionEvent) {
+    fun generateCert() {
         // Select output file
         val fileChooser = FileChooser()
         fileChooser.title = ""
         fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.PFXFile"], "*.pfx, *.p12"))
-        var file = fileChooser.showSaveDialog(root.scene.window)
+        val file = fileChooser.showSaveDialog(root.scene.window)
         if (file == null) {
             return
         }
-        println(file)
+        throw Exception("feature not implemented")
     }
 
-    fun onSelectIssuer(event: ActionEvent) {
+    fun issuerFileOpener() {
         // Select output file
         val fileChooser = FileChooser()
         fileChooser.title = ""
         fileChooser.extensionFilters.add(FileChooser.ExtensionFilter(this.messages["T.PFXFile"], "*.pfx, *.p12"))
-        var file = fileChooser.showOpenDialog(root.scene.window)
+        val file = fileChooser.showOpenDialog(root.scene.window)
         if (file == null) {
             return
         }
